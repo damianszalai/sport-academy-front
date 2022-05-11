@@ -1,0 +1,16 @@
+export { default as Logo } from "./logo.png";
+export { default as SliderUno } from "./slider-1.jpg";
+export { default as SliderDos } from "./slider-2.jpg";
+export { default as tresSesenta } from "./360.png";
+export { default as gatorade} from "./gatorade.png";
+export { default as Lotto } from "./lotto.png";
+export { default as Bsports } from "./bsports.png";
+export { default as Clinica } from "./clinica.png";
+export { default as bgTopHeader } from "./bg-th.png";
+export { default as aaMin } from "./aa-min.jpg";
+export { default as bbMin } from "./bb-min.jpg";
+export { default as ccMin } from "./cc-min.jpg";
+export { default as bguno } from "./bg-1.jpg";
+export { default as bgtennis } from "./tennis-3.jpg";
+export { default as usa } from "./usa.jpg";
+export { default as colOlimpo } from "./col-olimpo.jpg";
