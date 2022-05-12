@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.section`
-  background: rgb(33, 37, 41);
+  background: ${Colors.black};
   article {
     padding: 48px 0;
     display: flex;
@@ -15,13 +16,13 @@ const Container = styled.section`
     > div {
       display: flex;
       flex-direction: column;
-      justyfy-content: left;
+      justify-content: left;
       h2 {
-        justyfy-content: left;
-        color: #ffff33;
+        justify-content: left;
+        color: ${Colors.yellow};
         font-weight: bold;
         font-size: 2.3em;
-        border-bottom: #ffff33 solid 1px;
+        border-bottom: ${Colors.yellow} solid 1px;
         text-transform: uppercase;
       }
       p {

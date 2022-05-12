@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Colors } from "../../UI/atoms/colors";
 import { devices } from "../../UI/atoms/devices";
 
 const Container = styled.div`
   padding: 0;
-  background: #212529;
+  background: ${Colors.black};
   .subHero {
-    background: #ffff00;
+    background: ${Colors.yellow};
     .container {
       padding: 24px;
       text-align: center;
@@ -20,7 +21,7 @@ const Container = styled.div`
       }
 
       p {
-        font-size: 1.4em;
+        font-size: 1em;
         font-weight: bold;
         font-style: italic;
         line-height: 1;
@@ -31,11 +32,12 @@ const Container = styled.div`
         @media ${devices.laptop} {
           margin-right: 120px;
           text-align: left;
+          font-size: 1.3em;
         }
       }
       a {
-        background: white;
-        color: black;
+        background: ${Colors.black};
+        color: ${Colors.white};
         margin-top: 24px;
         font-weight: bold;
         padding: 0 24px;

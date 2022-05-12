@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
 
 const breatheAnimation = keyframes`
@@ -29,7 +30,6 @@ const Container = styled.section`
 
     @media ${devices.laptop} {
       height: 538px;
-     /*  max-width: 1320px; */
     }
 
     .slider_container {
@@ -109,7 +109,7 @@ const Container = styled.section`
               font-size: 1em;
               line-height: 1;
               font-weight: bold;
-              color: #ffff00;
+              color: ${Colors.yellow};
               width: 85%;
               text-transform: uppercase;
 
@@ -144,8 +144,8 @@ const Container = styled.section`
                 .buy_now {
                   display: inline-block;
                   padding: 0 24px;
-                  background: #ffff00;
-                  color: rgb(33, 37, 41);
+                  background: ${Colors.yellow};
+                  color: ${Colors.black};
                   text-transform: uppercase;
                   height: 55px;
                   line-height: 55px;
@@ -154,7 +154,7 @@ const Container = styled.section`
                   font-weight: 700;
                   text-decoration: none;
                   border-radius: 5px;
-                  border: solid 1px #ffff00;
+                  border: solid 1px ${Colors.yellow};
                   margin-right: 20px;
                   left: 13%;
                   right: unset;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
 
 const Container = styled.section`
   width: 100%;
-  background: rgb(33, 37, 41);
+  background: ${Colors.black};
   text-align: center;
   padding: 12px 0;
   > div {
@@ -13,7 +14,7 @@ const Container = styled.section`
     flex-wrap: wrap;
 
     &:last-child {
-      border: solid #ffff00 5px;
+      border: solid ${Colors.yellow} 5px;
       width: 560px;
       margin: auto;
       max-width: 100%;
@@ -25,9 +26,8 @@ const Container = styled.section`
 
       @media ${devices.laptop} {
         max-width: 800px;
-        width: 25%
+        width: 25%;
       }
-
 
       span {
         color: white;
@@ -35,7 +35,7 @@ const Container = styled.section`
         &:first-child {
           font-size: 5.2rem;
           font-weight: bold;
-          color: #ffff00;
+          color: ${Colors.yellow};
         }
         &:last-child {
           width: 100%;

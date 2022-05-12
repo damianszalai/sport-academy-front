@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.nav`
   .navbar-brand img {
@@ -10,7 +11,7 @@ const Container = styled.nav`
 
   .navbar-nav {
     a.nav-item.nav-link.active {
-      color: #ffff33;
+      color: ${Colors.yellow};
     }
 
     .nav-item.dropdown:hover {

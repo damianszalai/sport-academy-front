@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.form`
   width: 100%;
@@ -12,21 +13,21 @@ const Container = styled.form`
   h2 {
     font-weight: bold;
     font-size: 3em;
-    border-bottom:solid 1px rgb(33, 37, 41);
-    color: rgb(33, 37, 41)
+    border-bottom: solid 1px ${Colors.black};
+    color: ${Colors.black};
   }
 
   .btn.btn-primary {
     background: transparent;
-    border: solid 1px #ffff33;
-    color: rgb(33, 37, 41);
+    border: solid 1px ${Colors.yellow};
+    color: ${Colors.black};
 
-    background: #ffff33;
+    background: ${Colors.yellow};
     font-weight: bold;
     width: 100%;
-    margin-top:6px;
+    margin-top: 6px;
     border-radius: 0px;
   }
 `;
- 
+
 export default Container;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.div`
-  background: rgb(33, 37, 41);
+  background: ${Colors.black};
   position: relative;
   padding: 24px 0;
 

@@ -5,8 +5,6 @@ const Container = styled.section`
   justify-content: center;
   padding: 24px 0;
   flex-wrap: wrap;
-
-
 `;
 
 export default Container;

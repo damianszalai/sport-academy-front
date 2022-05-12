@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
 
 const Container = styled.header`
-  background: #ffff33;
+  background: ${Colors.yellow};
   position: relative;
   padding: 24px 0;
 
@@ -13,7 +14,7 @@ const Container = styled.header`
     position: absolute;
     right: 0;
     top: -1px;
-    background: rgb(33, 37, 41);
+    background: ${Colors.black};
     display: block;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%);
     @media ${devices.laptop} {

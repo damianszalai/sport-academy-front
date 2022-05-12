@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Colors } from "../../UI/atoms/colors";
 
 const Container = styled.div`
-  background: rgb(33, 37, 41);
+  background: ${Colors.black};
   article {
     margin: auto;
     padding: 24px 0;
@@ -25,17 +26,17 @@ const Container = styled.div`
               content: '';
               width: 0px;
               height: 0px;
-              background: #ffff33;
+              background: ${Colors.yellow};
               position: absolute;
               left: -20px;
               top: 50%;
-              border-top: solid 20px #ffff33;
-              border-left: solid 10px rgb(33, 37, 41);
-              border-right: solid 10px rgb(33, 37, 41);
+              border-top: solid 20px ${Colors.yellow};
+              border-left: solid 10px ${Colors.black};
+              border-right: solid 10px ${Colors.black};
               transform: translate(-50%,-50%) rotate(-90deg);
           }
         a {
-          color: #ffff33;
+          color: ${Colors.yellow};
           transition: all .25s ease-out;
           text-underline-offset: 3px;
           font-weight: bold;

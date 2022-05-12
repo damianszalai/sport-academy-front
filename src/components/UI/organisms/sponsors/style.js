@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { devices } from "../../atoms/devices";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.section`
   width: 100%;
-  background: rgba(33,37,41);
+  background: ${Colors.black};
   padding: 36px 0;
   figure {
     display: flex;
@@ -11,11 +11,6 @@ const Container = styled.section`
     margin: auto;
     justify-content: center;
     flex-wrap: wrap;
-
-    @media ${devices.laptop} {
-      
-    }
-    
 
     img {
       height: 30px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../atoms/colors";
 
 const Container = styled.div`
   display: flex;
@@ -11,23 +12,23 @@ const Container = styled.div`
   select {
     border-radius: 0px;
     height: 40px;
-    border: solid 1px rgb(33, 37, 41);
+    border: solid 1px ${Colors.black};
     padding: 6px;
     background: white;
     color: white;
-    color: rgb(33, 37, 41);
+    color: ${Colors.black};
 
     &:focus {
-      outline: solid 1px yellow;
+      outline: solid 1px ${Colors.yellow};
       outline-offset: 2px
     }
   }
   textarea {
       height: 120px;
       padding: 6px;
-      border: solid 1px rgb(33, 37, 41);
+      border: solid 1px ${Colors.black};
       &:focus {
-        outline: solid 1px yellow;
+        outline: solid 1px ${Colors.yellow};
         outline-offset: 2px
       }
   }

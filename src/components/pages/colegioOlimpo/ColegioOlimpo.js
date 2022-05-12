@@ -39,9 +39,9 @@ const ColegioOlimpo = () => {
           </motion.p>
           <motion.figure
             className="col"
-            initial={{ transform: 'translateX(-150px)', opacity:0 }}
+            initial={{ transform: 'translateX(-100px)', opacity:0 }}
             animate={{ transform: 'translateX(0px)',opacity:1  }}
-            transition={{ duration: 0.8, delay: .4 }}
+            transition={{ duration: 1, delay: .4, ease:"easeOut" }}
           >
             <img src={colOlimpo} alt="" />
           </motion.figure>

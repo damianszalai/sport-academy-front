@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { Colors } from "../../UI/atoms/colors";
 
 const Container = styled.div`
   min-height: 90vh;
   padding: 0;
-  background:rgb(33,37,41);
+  background: ${Colors.black};
   margin: 0;
 `;
 

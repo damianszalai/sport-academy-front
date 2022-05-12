@@ -69,22 +69,22 @@ const Footer = () => {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Servicios</h6>
               <p>
-                <Link to="/academia-futbol" className="text-reset">
+                <Link to="/academia-futbol" >
                 Academia Futbol
                 </Link>
               </p>
               <p>
-                <Link to="academia-tennis" className="text-reset">
+                <Link to="academia-tennis" >
                   Academia Tennis
                 </Link>
               </p>
               <p>
-                <Link to="/becas-deportivas-usa" className="text-reset">
+                <Link to="/becas-deportivas-usa" >
                   Becas desportivas USA
                 </Link>
               </p>
               <p>
-                <Link to="/colegio-olimpo" className="text-reset">
+                <Link to="/colegio-olimpo" >
                   Colegio Olimpo
                 </Link>
               </p>
