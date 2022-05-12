@@ -14,6 +14,10 @@ const Container = styled.section`
       text-decoration: none;
       color: #121212;
       margin: 0 12px;
+      display: flex;
+      i {
+        margin-right: 6px;
+      }
     }
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slide from "../../molecules/Slide";
 import Container from "./style";
-import { SliderUno, SliderDos } from "../../../../assets";
+import { SliderUno } from "../../../../assets";
 
 const Slider = () => {
   const [sliderCounter, setSliderCounter] = useState(1);

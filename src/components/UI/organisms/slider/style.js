@@ -72,7 +72,7 @@ const Container = styled.section`
           animation: ${leftRight} 0.5s ease-out;
         }
         .left-desc {
-          width: 50%;
+          width: 60%;
           max-width: 950px;
           background: rgba(33, 37, 41, 09);
           clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
