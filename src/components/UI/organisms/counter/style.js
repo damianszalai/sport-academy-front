@@ -10,8 +10,13 @@ const Container = styled.section`
   > div {
     display: flex;
     justify-content: space-around;
-    margin: 68px auto 90px;
+    margin: 38px auto 90px;
     flex-wrap: wrap;
+    flex-direction: column;
+
+    @media ${devices.laptop} {
+      flex-direction: row;
+    }
 
     &:last-child {
       border: solid ${Colors.yellow} 5px;
@@ -21,14 +26,23 @@ const Container = styled.section`
     }
     > div {
       display: flex;
-      flex-direction: column;
-      width: 50%;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
 
       @media ${devices.laptop} {
         max-width: 800px;
+        flex-direction: column;
         width: 25%;
+        
       }
-
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        @media ${devices.laptop} {
+          
+          flex-direction: column;
+        }
+      }
       span {
         color: white;
 
@@ -36,6 +50,10 @@ const Container = styled.section`
           font-size: 5.2rem;
           font-weight: bold;
           color: ${Colors.yellow};
+          width: 50%;
+          @media ${devices.laptop} {
+            width: auto;
+          }
         }
         &:last-child {
           width: 100%;
