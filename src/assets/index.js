@@ -10,7 +10,5 @@ export { default as bgTopHeader } from "./bg-th.png";
 export { default as aaMin } from "./aa-min.jpg";
 export { default as bbMin } from "./bb-min.jpg";
 export { default as ccMin } from "./cc-min.jpg";
-export { default as bguno } from "./bg-1.jpg";
-export { default as bgtennis } from "./tennis-3.jpg";
-export { default as usa } from "./usa.jpg";
 export { default as colOlimpo } from "./col-olimpo.jpg";
+export { default as sliderPng } from "./slider-2-removebg-preview.png";

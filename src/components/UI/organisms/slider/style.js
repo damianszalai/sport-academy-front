@@ -29,7 +29,7 @@ const Container = styled.section`
 
     @media ${devices.laptop} {
       height: 538px;
-      max-width: 1320px;
+     /*  max-width: 1320px; */
     }
 
     .slider_container {
@@ -57,8 +57,8 @@ const Container = styled.section`
           background-position: 108px center !important;
         }
         @media ${devices.laptop} {
-          background-size: cover;
-          background-position: 350px center;
+          background-size: 60%;
+          background-position: right center;
         }
 
         &.show {
@@ -73,7 +73,7 @@ const Container = styled.section`
         }
         .left-desc {
           width: 50%;
-          max-width: 650px;
+          max-width: 950px;
           background: rgba(33, 37, 41, 09);
           clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
           height: 101%;

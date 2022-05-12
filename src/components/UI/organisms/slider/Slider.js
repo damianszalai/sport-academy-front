@@ -8,7 +8,7 @@ const Slider = () => {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      if (sliderCounter < 2) {
+      if (sliderCounter < slids.length) {
         setSliderCounter((sliderCounter) => sliderCounter + 1);
       } else {
         setSliderCounter(1);
@@ -17,11 +17,30 @@ const Slider = () => {
     return () => clearInterval(interval);
   });
 
+  const slids = [
+    {
+      text: "slider 1",
+      bg: SliderUno,
+      title: "!únete a nuestro equipo! nos vemos en la cancha",
+      link: "",
+      botonText: "Postulá aquí",
+      botonUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfb56zbIvuryesCU4q7xHTgc2VB6oSigFvKfyo7mau5kqlLIg/viewform",
+    }/* ,
+    {
+      text: "slider 2",
+      bg: SliderDos,
+      title:
+        "¡VEN A MEJORAR TU RENDIMIENTO PARA OBTENER UNA BECA DEPORTIVA EN LAS MEJORES UNIVERSIDADES DE USA, CHILE, O PORQUÉ NO, LLEGAR A SER UN DEPORTISTA PROFESIONAL!",
+      link: "",
+      botonText: "Postulá aquí",
+      botonUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfb56zbIvuryesCU4q7xHTgc2VB6oSigFvKfyo7mau5kqlLIg/viewform",
+    } */
+  ];
   return (
     <Container>
       <div className="slider container">
         <ul className="slider_container" id="slider-container">
-          <Slide
+          {/*  <Slide
             show={sliderCounter === 1 && true}
             num="1"
             text="slider 1"
@@ -38,9 +57,21 @@ const Slider = () => {
             bg={SliderDos}
             link=""
             title="¡VEN A MEJORAR TU RENDIMIENTO PARA OBTENER UNA BECA DEPORTIVA EN LAS MEJORES UNIVERSIDADES DE USA, CHILE, O PORQUÉ NO, LLEGAR A SER UN DEPORTISTA PROFESIONAL!"
-         /*    botonText="Postulá aquí"
-            botonUrl="www.google.com.ar" */
+           
           ></Slide>
+> */}
+
+          {slids.map((slid, i) => (
+            <Slide
+              hey={i}
+              show={sliderCounter === i + 1 && true}
+              bg={slid.bg}
+              title={slid.title}
+              link={slid.link}
+              botonText={slid.botonText}
+              botonUrl={slid.botonUrl}
+            ></Slide>
+          ))}
         </ul>
       </div>
     </Container>

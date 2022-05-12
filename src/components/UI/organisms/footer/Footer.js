@@ -59,12 +59,10 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                Company name
+                Sport Academy
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Tu Deporte - Tu Sueño
               </p>
             </div>
 
@@ -97,10 +95,10 @@ const Footer = () => {
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
-              <i class="bi bi-pin-map-fill"></i> Club Palestino, Av. Kennedy N°9351
+              <i className="bi bi-pin-map-fill"></i> Club Palestino, Av. Kennedy N°9351
               </p>
               <p>
-                <i className="bi bi-envelope-fill"></i> info@example.com
+                <i className="bi bi-envelope-fill"></i> contacto@sportacademy.cl
               </p>
               <p>
                 <i className="bi bi-telephone-fill"></i> +56972842382
