@@ -19,7 +19,6 @@ const Slider = () => {
 
   const slids = [
     {
-      text: "slider 1",
       bg: SliderUno,
       title: "!únete a nuestro equipo! nos vemos en la cancha",
       link: "",
@@ -63,7 +62,7 @@ const Slider = () => {
 
           {slids.map((slid, i) => (
             <Slide
-              hey={i}
+              key={i}
               show={sliderCounter === i + 1 && true}
               bg={slid.bg}
               title={slid.title}
