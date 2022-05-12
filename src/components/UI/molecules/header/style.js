@@ -15,7 +15,7 @@ const Container = styled.header`
     top: -1px;
     background: rgb(33, 37, 41);
     display: block;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%);
     @media ${devices.laptop} {
       width: 60%;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);

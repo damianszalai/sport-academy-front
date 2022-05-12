@@ -43,10 +43,10 @@ const Footer = () => {
         </div>
 
         <div>
-          <a href="http://www.google.com" className="me-4 text-reset">
+          <a href="https://es-la.facebook.com/sportacademypro/" className="me-4 text-reset">
             <i className="bi bi-facebook"></i>
           </a>
-          <a href="http://www.google.com" className="me-4 text-reset">
+          <a href="https://www.instagram.com/sportacademypro" className="me-4 text-reset">
             <i className="bi bi-instagram"></i>
           </a>
 
@@ -67,7 +67,7 @@ const Footer = () => {
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              <h6 className="text-uppercase fw-bold mb-4">Servicios</h6>
               <p>
                 <Link to="/academia-futbol" className="text-reset">
                 Academia Futbol
@@ -93,7 +93,7 @@ const Footer = () => {
 
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+              <h6 className="text-uppercase fw-bold mb-4">Contacto</h6>
               <p>
               <i className="bi bi-pin-map-fill"></i> Club Palestino, Av. Kennedy N°9351
               </p>
