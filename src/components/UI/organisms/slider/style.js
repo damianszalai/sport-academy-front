@@ -4,28 +4,27 @@ import { devices } from "../../atoms/devices";
 const breatheAnimation = keyframes`
  0% { opacity: 0 }
  100% { opacity: 1 }
-`
+`;
 
 const leftRight = keyframes`
  0% { transform: translateX(-100px);opacity:0}
  100% { transform: translateX(0);opacity:1 }
-`
+`;
 
 const topBottom = keyframes`
  0% { transform: translateY(-100px);opacity:0}
  40% { transform: translateY(-100px);opacity:0}
  100% { transform: translateY(0);opacity:1 }
-`
+`;
 
 const Container = styled.section`
-
   .slider {
     height: 308px;
     width: 100%;
     margin: auto;
     position: relative;
     overflow: hidden;
-    padding:0;
+    padding: 0;
     max-width: initial;
 
     @media ${devices.laptop} {
@@ -33,7 +32,6 @@ const Container = styled.section`
       max-width: 1320px;
     }
 
-    
     .slider_container {
       list-style: none;
       height: 100%;
@@ -46,27 +44,32 @@ const Container = styled.section`
       flex-wrap: wrap;
       flex-direction: column;
 
- 
-
-    
       li {
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center center;
         background-repeat: no-repeat;
         opacity: 0;
         display: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        @media ${devices.mobileOnly} {
+          background-position: 108px center !important;
+        }
+        @media ${devices.laptop} {
+          background-size: cover;
+          background-position: 350px center;
+        }
 
         &.show {
           opacity: 1;
           display: block;
-          animation: ${breatheAnimation} .5s ease-out;
+          animation: ${breatheAnimation} 0.5s ease-out;
         }
         p {
           position: relative;
           opacity: 1;
-          animation: ${leftRight} .5s ease-out;
+          animation: ${leftRight} 0.5s ease-out;
         }
         .left-desc {
           width: 50%;
@@ -78,8 +81,8 @@ const Container = styled.section`
           padding: 20px;
           box-sizing: border-box;
           position: relative;
-          top:-1px;
-          
+          top: -1px;
+
           @media ${devices.laptop} {
             width: 70%;
           }
@@ -103,7 +106,7 @@ const Container = styled.section`
             }
             p {
               margin-bottom: 20px;
-              font-size: 1.5em;
+              font-size: 1em;
               line-height: 1;
               font-weight: bold;
               color: #ffff00;
@@ -113,7 +116,6 @@ const Container = styled.section`
               @media ${devices.laptop} {
                 font-size: 2.5em;
               }
-    
 
               &.mobile-copy {
                 display: none;

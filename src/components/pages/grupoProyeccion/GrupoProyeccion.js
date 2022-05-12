@@ -6,7 +6,6 @@ import SubHeader from "../../UI/molecules/subheader/SubHeader";
 import Cards from "../../UI/organisms/cards/Cards";
 import Form from "../../UI/organisms/form/Form";
 import Container from "./style";
-import { motion } from "framer-motion";
 
 const GrupoProyeccion = () => {
   const metodologiasList = [

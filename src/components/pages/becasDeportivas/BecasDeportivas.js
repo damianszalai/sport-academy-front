@@ -1,5 +1,4 @@
 import React from "react";
-import { Logo } from "../../../assets";
 import Description from "../../UI/molecules/description/Description";
 import Header from "../../UI/molecules/header/Header";
 import Metodologias from "../../UI/molecules/metodologias/Metodologias";

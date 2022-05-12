@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import { devices } from "../../atoms/devices";
+
 
 const Container = styled.article`
   text-align: center;
   margin: 0 12px;
-  width: 50%;
+  width: 90%;
   margin: 24px 0;
+  @media ${devices.laptop} {
+    width: 50%;
+    
+  }
   a {
     text-decoration: none;
     display: block;

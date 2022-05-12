@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "../../../../assets/index";
 import Container from "./style";
 
 export const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false)
+  
   return (
     <Container className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="container">
       <Link className="navbar-brand" to="/">
         <img src={Logo} alt="sport academy logo" />
       </Link>
-
-      <div className="navbar-collapse">
+      <button onClick={()=>setOpenMenu(!openMenu)} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+      <div className={`navbar-collapse collapse  ${openMenu ? "show" : ""}`}>
         <div className="navbar-nav">
           <NavLink
             className={({ isActive }) =>
@@ -51,23 +55,7 @@ export const Navbar = () => {
             Colegio Olimpo
           </NavLink>
 
-          <li className="nav-item dropdown">
-            <span className="nav-link dropdown-toggle"            >
-              Dropdown
-            </span>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink className="dropdown-item" to="#">
-                Action
-              </NavLink>
-              <NavLink className="dropdown-item" to="#">
-                Another action
-              </NavLink>
-              <div className="dropdown-divider"></div>
-              <NavLink className="dropdown-item" to="#">
-                Something else here
-              </NavLink>
-            </div>
-          </li>
+
         </div>
       </div>
       </div>

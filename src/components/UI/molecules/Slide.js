@@ -2,7 +2,7 @@ import React from 'react'
 
 const Slide = ({num, show, botonText, botonUrl, bg, title}) => {
   return (
-    <li className={show ? 'show' : ''} style={{background: `url(${bg}) 350px center no-repeat`}}>
+    <li className={show ? 'show' : ''} style={{backgroundImage: `url(${bg})`}}>
     <div className="left-desc">
       <figure>
  
