@@ -21,6 +21,9 @@ const Container = styled.section`
     }
     > figure {
       text-align: center;
+      img {
+        max-width: 100%;
+      }
     }
     > div {
       display: flex;
