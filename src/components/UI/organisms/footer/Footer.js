@@ -8,26 +8,7 @@ const Footer = () => {
 
   return (
     <Container className="text-center text-lg-start bg-dark text-muted">
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 container">
-        <div className="me-5 d-none d-lg-block">
-          <span>Seguinos en nuestras redes:</span>
-        </div>
 
-        <div>
-          <a
-            href="https://es-la.facebook.com/sportacademypro/"
-            className="me-4 text-reset"
-          >
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/sportacademypro"
-            className="me-4 text-reset"
-          >
-            <i className="bi bi-instagram"></i>
-          </a>
-        </div>
-      </section>
 
       <section className="">
         <div className="container text-center text-md-start mt-5">
@@ -66,13 +47,30 @@ const Footer = () => {
                 <i className="bi bi-telephone-fill"></i> +56972842382
               </p>
             </div>
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Nuestras Redes</h6>
+              <p>
+                <a
+                  href="https://es-la.facebook.com/sportacademypro/"
+                  className="me-4 text-reset"
+                >
+                  <i className="bi bi-facebook"></i>
+                </a>
+             
+                <a
+                  href="https://www.instagram.com/sportacademypro"
+                  className="me-4 text-reset"
+                >
+                  <i className="bi bi-instagram"></i>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <div
         className="text-center p-4"
-        /*   style="background-color: rgba(0, 0, 0, 0.05);" */
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
         Todos los derechos reservados - Sport Academy {year}

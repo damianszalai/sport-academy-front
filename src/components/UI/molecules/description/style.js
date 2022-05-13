@@ -1,14 +1,23 @@
 import styled from "styled-components";
 import { Colors } from "../../atoms/colors";
+import { devices } from "../../atoms/devices";
 
 const Container = styled.section`
   background: ${Colors.black};
   article {
     padding: 48px 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media ${devices.laptop} {
+      flex-direction: row;
+    }
     > div,
     > figure {
-      width: 50%;
+      width: 90%;
+      @media ${devices.laptop} {
+        width: 50%;
+      }
     }
     > figure {
       text-align: center;

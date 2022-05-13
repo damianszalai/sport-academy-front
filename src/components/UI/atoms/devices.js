@@ -1,7 +1,7 @@
 const sizes = {
     tablet: '768px',
-    laptop: '1024px',
-    desktop: '2560px',
+    laptop: '768px',
+    desktop: '1024px',
   };
 
   export const devices = {
