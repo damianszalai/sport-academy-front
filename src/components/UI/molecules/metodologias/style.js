@@ -11,8 +11,9 @@ const Container = styled.section`
     align-items: center;
 
     @media ${devices.laptop} {
-        flex-direction: row;
-        align-items: baseline;
+      display: grid;
+     grid-template-columns: ${(props) => props.cantidad > 0 ? `repeat(${props.cantidad}, 1fr)` : null}
+       
     }
     > article {
       padding: 0 24px;
@@ -22,8 +23,9 @@ const Container = styled.section`
       margin-bottom:24px;
       
       @media ${devices.laptop} {
-          width: 30%;
+          width: auto;
           margin-bottom:0;
+          align-self: start;
        
     }
 

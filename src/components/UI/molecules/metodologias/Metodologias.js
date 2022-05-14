@@ -4,7 +4,7 @@ import Container from "./style";
 
 const Metodologias = ({metodologiasList = []}) => {
   return (
-    <Container>
+    <Container cantidad={metodologiasList.length}>
       <div className="container">
 
           {metodologiasList.map((meto,i)=> 

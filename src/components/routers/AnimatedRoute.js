@@ -4,7 +4,8 @@ import AcademiaFutbol from "../pages/academiaFutbol/AcademiaFutbol";
 import AcademiaTennis from "../pages/academiaTennis/AcademiaTennis";
 import BecasDeportivas from "../pages/becasDeportivas/BecasDeportivas";
 import ColegioOlimpo from "../pages/colegioOlimpo/ColegioOlimpo";
-import GrupoProyeccion from "../pages/grupoProyeccion/GrupoProyeccion";
+import GrupoProyeccion from "../pages/academiaTennis/grupoProyeccion/GrupoProyeccion";
+import GrupoJunior from "../pages/academiaTennis/grupoJunior/GrupoJunior";
 import Home from "../pages/home/Home";
 import { AnimatePresence } from "framer-motion";
 
@@ -21,6 +22,10 @@ const AnimatedRoute = () => {
         <Route
           path="/academia-tennis/grupo-proyeccion"
           element={<GrupoProyeccion />}
+        />
+        <Route
+          path="/academia-tennis/grupo-junior-elite"
+          element={<GrupoJunior />}
         />
       </Routes>
     </AnimatePresence>

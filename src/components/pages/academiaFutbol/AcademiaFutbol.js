@@ -10,21 +10,25 @@ const AcademiaFutbol = () => {
       title: "ACADEMIA KIDS",
       to: "/",
       years: "4-14",
+      subtitle: "AÑOS"
     },
     {
       title: "CATEGORÍA JUNIOR",
       to: "/",
       years: "13-14",
+      subtitle: "AÑOS"
     },
     {
       title: "CATEGORÍA PROYECCIÓN",
       to: "/",
       years: "15-16",
+      subtitle: "AÑOS"
     },
     {
       title: "CATEGORÍA USA",
       to: "/",
       years: "17-20",
+      subtitle: "AÑOS"
     }
   ];
   return (
@@ -33,7 +37,7 @@ const AcademiaFutbol = () => {
       <Header title="ACADEMIA DE FÚTBOL" />
       <Cards>
         {
-        cards.map((item, i) => <Card aa={i} key={i} linkTo={item.to} years={item.years} title={item.title}></Card>)
+        cards.map((item, i) => <Card aa={i} key={i} linkTo={item.to} years={item.years} subtitle={item.subtitle} title={item.title}></Card>)
       }
       </Cards>
     </Container>

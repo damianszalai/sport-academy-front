@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Container from "./style";
 import { motion } from "framer-motion";
 
-const Card = ({ years, title, linkTo, aa, deporte }) => {
+const Card = ({ years, subtitle, title, linkTo, aa, deporte }) => {
   return (
     <Container deporte={deporte}>
       <motion.div
@@ -15,7 +15,7 @@ const Card = ({ years, title, linkTo, aa, deporte }) => {
           <h2>{title}</h2>
           <h3>
             {years}
-            <span>Años</span>
+            <span>{subtitle}</span>
           </h3>
         </Link>
       </motion.div>
