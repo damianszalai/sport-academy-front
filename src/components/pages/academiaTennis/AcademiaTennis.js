@@ -33,7 +33,7 @@ const AcademiaTennis = () => {
       <Cards>
         
       {
-        cards.map((item, i) => <Card aa={i} key={i} linkTo={item.to} years={item.years} title={item.title}></Card>)
+        cards.map((item, i) => <Card deporte="tennis" aa={i} key={i} linkTo={item.to} years={item.years} title={item.title}></Card>)
       }
       </Cards>
     </Container>

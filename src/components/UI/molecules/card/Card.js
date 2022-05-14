@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Container from "./style";
 import { motion } from "framer-motion";
 
-const Card = ({ years, title, linkTo, aa }) => {
+const Card = ({ years, title, linkTo, aa, deporte }) => {
   return (
-    <Container>
+    <Container deporte={deporte}>
       <motion.div
         initial={{ transform: "scale(0)", opacity: 0 }}
         animate={{ transform: "scale(1)", opacity: 1 }}

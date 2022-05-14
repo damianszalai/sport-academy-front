@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { sliderPng } from "../../../../assets";
+import { sliderPng, tennisCategory } from "../../../../assets";
 import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
-
+/* tennisCategory */
 const Container = styled.article`
   margin: auto;
   display: flex;
@@ -11,18 +11,24 @@ const Container = styled.article`
   text-align: left;
   margin: 12px auto;
   @media ${devices.laptop} {
-      background: none;
-      width: 50%;
-    }
+    background: none;
+    width: 50%;
+  }
   a {
     border-radius: 4px;
     padding: 24px 12px;
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    background-image: url(${sliderPng}),
-      linear-gradient(${Colors.yellow}, ${Colors.yellow});
-    background-position: 90% 100%;
+    /*     background-image: url(${sliderPng}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow}); */
+    background-image: ${(props) =>
+      props.deporte == "tennis"
+        ? `url(${tennisCategory}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow})`
+        : `url(${sliderPng}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow})`};
+    background-position: 95% 100%;
     background-repeat: no-repeat;
     background-size: auto 90%, cover;
 
@@ -57,7 +63,7 @@ const Container = styled.article`
 
       @media ${devices.laptop} {
         background: white;
-        text-align:center;
+        text-align: center;
         height: 100px;
         clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
         padding: 0 48px;
