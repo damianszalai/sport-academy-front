@@ -1,65 +1,76 @@
 import styled from "styled-components";
+import { sliderPng } from "../../../../assets";
 import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
 
 const Container = styled.article`
-  text-align: center;
-  margin: 0 12px;
+  margin: auto;
+  display: flex;
   width: 90%;
-  margin: 24px 0;
+  flex-direction: column;
+  text-align: left;
+  margin: 12px auto;
   @media ${devices.laptop} {
-    width: 50%;
-  }
+      background: none;
+      width: 50%;
+    }
   a {
+    border-radius: 4px;
+    padding: 24px 12px;
     text-decoration: none;
-    display: block;
-    margin: auto;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(${sliderPng}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow});
+    background-position: 90% 100%;
+    background-repeat: no-repeat;
+    background-size: auto 90%, cover;
 
-    &:hover h2,
-    &:hover h3 {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-      left: 0;
+    @media ${devices.laptop} {
+      background: none;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
     }
 
     h2 {
-      position: relative;
-      left: 20px;
-      transition: all 0.25s ease;
-      background: ${Colors.yellow};
-      margin: 0;
-      padding: 0 6px;
-      clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
       color: ${Colors.black};
       font-weight: bold;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 2px;
+      width: 70%;
+
+      @media ${devices.laptop} {
+        background: yellow;
+        width: 100%;
+        text-align: center;
+        height: 100px;
+        clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+        padding: 0 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     h3 {
-      position: relative;
-      left: -20px;
-      transition: all 0.25s ease;
-      background: white;
-      clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
       color: ${Colors.black};
-      margin: 0;
-      padding: 6px;
-      font-size: 2.3em;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-weight: bold;
+      margin-bottom: 0;
 
+      @media ${devices.laptop} {
+        background: white;
+        text-align:center;
+        height: 100px;
+        clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+        padding: 0 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       span {
-        font-weight: 300;
-        display: block;
+        margin-left: 6px;
       }
     }
   }
 `;
 
 export default Container;
+/* clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); */

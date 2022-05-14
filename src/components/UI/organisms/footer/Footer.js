@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Sport Academy</h6>
-              <p>Tu Deporte - Tu Sueño</p>
+              <p>Academia de alto rendimiento más grande de Chile y #1 en Gestión de becas en EE.UU con +350 deportistas en el extranjero.</p>
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">

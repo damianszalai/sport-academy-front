@@ -12,11 +12,11 @@ const Card = ({ years, title, linkTo, aa }) => {
         transition={{delay: (aa * 0.3), duration: 0.45, ease: [0.96, -0.23, 0.03, 1.27] }}
       >
         <Link to={linkTo}>
+          <h2>{title}</h2>
           <h3>
             {years}
             <span>Años</span>
           </h3>
-          <h2>{title}</h2>
         </Link>
       </motion.div>
     </Container>
