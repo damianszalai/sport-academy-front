@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { sliderPng, tennisCategory } from "../../../../assets";
 import { Colors } from "../../atoms/colors";
 import { devices } from "../../atoms/devices";
-/* tennisCategory */
+
 const Container = styled.article`
   margin: auto;
   display: flex;
@@ -20,10 +20,8 @@ const Container = styled.article`
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    /*     background-image: url(${sliderPng}),
-      linear-gradient(${Colors.yellow}, ${Colors.yellow}); */
     background-image: ${(props) =>
-      props.deporte == "tennis"
+      props.deporte === "tennis"
         ? `url(${tennisCategory}),
       linear-gradient(${Colors.yellow}, ${Colors.yellow})`
         : `url(${sliderPng}),
