@@ -27,7 +27,7 @@ const Gallery = () => {
         ))}
       </figure>
       {image && (
-        <div onClick={() => setImage(null)} className="imgSelected">
+        <div onClick={() => setImage(null)}>
          
           <i class="bi bi-x-lg" onClick={() => setImage(null)}></i>
           <motion.img
