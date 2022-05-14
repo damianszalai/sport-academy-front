@@ -5,12 +5,12 @@ const Container = styled.div`
   width: 100%;
   margin: 120px 0;
   figure {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 10px;
     img {
-      width: 30%;
-      margin: 3px 1%;
+     width: 100%;
+     
       border-radius: 4px;
       
       &:hover{
