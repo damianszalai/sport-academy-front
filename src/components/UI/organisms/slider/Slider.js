@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Slide from "../../molecules/Slide";
+import Slide from "../../molecules/slide/Slide";
 import Container from "./style";
 import { SliderUno } from "../../../../assets";
 
@@ -39,26 +39,6 @@ const Slider = () => {
     <Container>
       <div className="slider container">
         <ul className="slider_container" id="slider-container">
-          {/*  <Slide
-            show={sliderCounter === 1 && true}
-            num="1"
-            text="slider 1"
-            bg={SliderUno}
-            title="!únete a nuestro equipo! nos vemos en la cancha"
-            link=""
-            botonText="Postulá aquí"
-            botonUrl="www.google.com.ar"
-          ></Slide>
-          <Slide
-            show={sliderCounter === 2 && true}
-            num="2"
-            text="slider 2"
-            bg={SliderDos}
-            link=""
-            title="¡VEN A MEJORAR TU RENDIMIENTO PARA OBTENER UNA BECA DEPORTIVA EN LAS MEJORES UNIVERSIDADES DE USA, CHILE, O PORQUÉ NO, LLEGAR A SER UN DEPORTISTA PROFESIONAL!"
-           
-          ></Slide>
-> */}
 
           {slids.map((slid, i) => (
             <Slide

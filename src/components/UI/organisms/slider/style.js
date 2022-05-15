@@ -94,8 +94,12 @@ const Container = styled.section`
             transform: translate(-50%, -50%);
             width: calc(100% - 40px);
             background: 0 0;
-            padding: 15px 28px 37px;
+            padding: 15px 0 37px;
             text-align: center;
+
+            @media ${devices.laptop} {
+              padding: 15px 48px 37px;
+          }
 
             h3 {
               font-size: 30px;
@@ -115,6 +119,7 @@ const Container = styled.section`
 
               @media ${devices.laptop} {
                 font-size: 2.5em;
+                max-width: 400px;
               }
 
               &.mobile-copy {
@@ -147,8 +152,8 @@ const Container = styled.section`
                   background: ${Colors.yellow};
                   color: ${Colors.black};
                   text-transform: uppercase;
-                  height: 55px;
-                  line-height: 55px;
+                  height: 45px;
+                  line-height: 45px;
                   text-align: center;
                   font-size: 1.1em;
                   font-weight: 700;
