@@ -71,7 +71,7 @@ const Form = () => {
         value={inputs.edad || ""}
         onChange={handleChange}
       ></FormInput>
-      <FormSelect  name="deporte" label="Tu Vieja" onChange={handleChange} options={options} />
+      <FormSelect  name="deporte" label="Deporte" onChange={handleChange} options={options} />
       <FormTextArea name="comentarios" label="Comentarios" onChange={handleChange}/>
       <input type="submit" className="btn btn-primary"/>
     </Container>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../UI/atoms/colors";
+import { devices } from "../../UI/atoms/devices";
 
 const Container = styled.div`
   background: ${Colors.black};
@@ -7,10 +8,16 @@ const Container = styled.div`
     margin: auto;
     padding: 24px 0;
     min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    @media ${devices.laptop} {
+      flex-direction: row;
+    }
     figure {
       text-align: center;
       img {
-        width: 400px;
+        width: 100%;
+        max-width: 400px;
       }
     }
     p {

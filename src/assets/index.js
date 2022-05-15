@@ -13,3 +13,4 @@ export { default as ccMin } from "./cc-min.jpg";
 export { default as colOlimpo } from "./col-olimpo.jpg";
 export { default as sliderPng } from "./slider-2-removebg-preview.png";
 export { default as tennisCategory } from "./tennis-category.png";
+export { default as form } from "./from.jpg";
