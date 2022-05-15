@@ -3,7 +3,6 @@ import Description from "../../../UI/molecules/description/Description";
 import Header from "../../../UI/molecules/header/Header";
 import Metodologias from "../../../UI/molecules/metodologias/Metodologias";
 import SubHeader from "../../../UI/molecules/subheader/SubHeader";
-import Cards from "../../../UI/organisms/cards/Cards";
 import Form from "../../../UI/organisms/form/Form";
 import Container from "./style";
 

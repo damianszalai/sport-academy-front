@@ -24,7 +24,7 @@ export const Navbar = () => {
             exact="true"
             to="/academia-futbol"
           >
-            Academia Futbol
+            Academia Fútbol
           </NavLink>
 
           <NavLink
@@ -34,7 +34,7 @@ export const Navbar = () => {
             exact="true"
             to="/academia-tennis"
           >
-            Academia tennis
+            Academia Tenis
           </NavLink>
           <NavLink
             className={({ isActive }) =>
