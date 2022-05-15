@@ -53,6 +53,7 @@ const Container = styled.article`
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 0;
       }
     }
     h3 {
