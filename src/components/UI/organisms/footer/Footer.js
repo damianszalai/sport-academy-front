@@ -21,10 +21,10 @@ const Footer = () => {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Servicios</h6>
               <p>
-                <Link to="/academia-futbol">Academia Futbol</Link>
+                <Link to="/academia-futbol">Academia Fútbol</Link>
               </p>
               <p>
-                <Link to="academia-tennis">Academia Tennis</Link>
+                <Link to="academia-tennis">Academia Tenis</Link>
               </p>
               <p>
                 <Link to="/becas-deportivas-usa">Becas desportivas USA</Link>
