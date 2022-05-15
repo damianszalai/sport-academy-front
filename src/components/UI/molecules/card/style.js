@@ -20,15 +20,22 @@ const Container = styled.article`
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    background-image: ${(props) =>
+    /* background-image: ${(props) =>
       props.deporte === "tennis"
         ? `url(${tennisCategory}),
       linear-gradient(${Colors.yellow}, ${Colors.yellow})`
         : `url(${sliderPng}),
-      linear-gradient(${Colors.yellow}, ${Colors.yellow})`};
-    background-position: 95% 100%;
+      linear-gradient(${Colors.yellow}, ${Colors.yellow})`}; */
+    
     background-repeat: no-repeat;
-    background-size: auto 90%, cover;
+    background-size: auto 100px, cover;
+
+     ${(props) =>
+      props.deporte === "tennis"
+        ? `background-image:url(${tennisCategory}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow});background-position: 97% bottom;`
+        : `background-image:url(${sliderPng}),
+      linear-gradient(${Colors.yellow}, ${Colors.yellow});background-position: 95% center;`};
 
     @media ${devices.laptop} {
       background: none;
