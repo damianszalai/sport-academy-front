@@ -33,6 +33,7 @@ const Container = styled.div`
           margin-right: 120px;
           text-align: left;
           font-size: 1.3em;
+          margin-bottom: 0;
         }
       }
       a {
