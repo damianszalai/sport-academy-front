@@ -42,16 +42,16 @@ const FormJugadores = ({
     },(err)=>console.log(err),
     ()=> {
         getDownloadURL(uploadTask.snapshot.ref)
-        .then(url => setDatos({...datos, img:url}))
+        .then(url => setDatos({...datos, img:'roman'}))
     });
   };
 
   const enviarDatos = async (event) => {
     event.preventDefault();
-    const file = event.target[0].files[0]
-    console.log(file);
-    uploadFile(file)
 
+    const file = event.target[0].files[0]
+    uploadFile(file)
+ 
 
     const docRef = await addDoc(collection(db, datos.deporte), datos);
     console.log("Document written with ID: ", docRef.id);
@@ -75,6 +75,7 @@ const FormJugadores = ({
           deporte: "jugadoresTenis",
           description: "",
           id: "",
+          img:""
         });
   }, [editMode, editUser]);
   /*   db.collection("users").doc(doc.id).update({foo: "bar"}); */
@@ -83,7 +84,7 @@ const FormJugadores = ({
     <Container onSubmit={editMode ? editarDatos : enviarDatos}>
       <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
       <div>
-        <input type="file" />
+        <input type="file" onChange={handleInputChange} name="img"/>
       </div>
       <h3>uploaded {progress} %</h3>
       <div>
