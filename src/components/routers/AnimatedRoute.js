@@ -8,6 +8,8 @@ import GrupoProyeccion from "../pages/academiaTennis/grupoProyeccion/GrupoProyec
 import GrupoJunior from "../pages/academiaTennis/grupoJunior/GrupoJunior";
 import Home from "../pages/home/Home";
 import { AnimatePresence } from "framer-motion";
+import JugadoresFutbol from "../pages/jugadoresFutbol/JugadoresFutbol";
+import JugadoresTenis from "../pages/jugadoresTenis/JugadoresTenis";
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -26,6 +28,14 @@ const AnimatedRoute = () => {
         <Route
           path="/academia-tennis/grupo-junior-elite"
           element={<GrupoJunior />}
+        />
+        <Route
+          path="/jugadores/futbol"
+          element={<JugadoresFutbol />}
+        />
+        <Route
+          path="/jugadores/tenis"
+          element={<JugadoresTenis/>}
         />
       </Routes>
     </AnimatePresence>

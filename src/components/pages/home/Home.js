@@ -3,6 +3,7 @@ import Counter from "../../UI/organisms/counter/Counter";
 import Gallery from "../../UI/organisms/gallery/Gallery";
 import Slider from "../../UI/organisms/slider/Slider";
 import Sponsors from "../../UI/organisms/sponsors/Sponsors";
+import Usuarios from "../../UI/organisms/usuarios/Usuarios";
 import Container from "./style";
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
         </div>
       </div>
       <Counter />
+      <Usuarios/>
       <Gallery/>
       <Sponsors />
     </Container>

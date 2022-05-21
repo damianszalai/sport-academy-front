@@ -1,7 +1,8 @@
 export const Colors = {
-    yellow: '#ffff33',
+    yellow: '#FFE500',
     black: '#212529',
-    white: '#fff'
+    white: '#fff',
+    red: '#dc3545'
   }
 
   /* rgb(33, 37, 41) */
