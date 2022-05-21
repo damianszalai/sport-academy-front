@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
-import db from "./../../../../firebase/firebaseConfig";
+import { db, storage } from "./../../../../firebase/firebaseConfig";
 import Container from "./style";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-const FormJugadores = ({ usuarios, setUsuarios, editMode, setEditMode, editUser }) => {
+const FormJugadores = ({
+  usuarios,
+  setUsuarios,
+  editMode,
+  setEditMode,
+  editUser,
+}) => {
   const [datos, setDatos] = useState({
     nombre: "",
     edad: 0,
     deporte: "jugadoresTenis",
     description: "",
-    id: '',
+    id: "",
   });
+
+  const [progress, setProgress] = useState(0);
   const handleInputChange = (event) => {
     setDatos({
       ...datos,
@@ -19,8 +28,29 @@ const FormJugadores = ({ usuarios, setUsuarios, editMode, setEditMode, editUser 
     console.log(datos);
   };
 
+  const uploadFile = (file) => {
+    if (!file) return;
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on("state_changed", (snapshot) => {
+      const prog = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      setProgress(prog);
+    },(err)=>console.log(err),
+    ()=> {
+        getDownloadURL(uploadTask.snapshot.ref)
+        .then(url => console.log(url))
+    });
+  };
+
   const enviarDatos = async (event) => {
     event.preventDefault();
+    const file = event.target[0].files[0]
+    console.log(file);
+    uploadFile(file)
+
 
     const docRef = await addDoc(collection(db, datos.deporte), datos);
     console.log("Document written with ID: ", docRef.id);
@@ -30,9 +60,8 @@ const FormJugadores = ({ usuarios, setUsuarios, editMode, setEditMode, editUser 
   const editarDatos = async (event) => {
     event.preventDefault();
     const washingtonRef = doc(db, datos.deporte, datos.id);
-console.log(datos.id);
+    console.log(datos.id);
     await updateDoc(washingtonRef, datos);
-   
   };
 
   useEffect(() => {
@@ -44,7 +73,7 @@ console.log(datos.id);
           edad: 0,
           deporte: "jugadoresTenis",
           description: "",
-          id: '',
+          id: "",
         });
   }, [editMode, editUser]);
   /*   db.collection("users").doc(doc.id).update({foo: "bar"}); */
@@ -52,6 +81,10 @@ console.log(datos.id);
   return (
     <Container onSubmit={editMode ? editarDatos : enviarDatos}>
       <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
+      <div>
+        <input type="file" />
+      </div>
+      <h3>uploaded {progress} %</h3>
       <div>
         <label>Nombre</label>
         <input
@@ -90,14 +123,12 @@ console.log(datos.id);
           name="description"
         ></textarea>
       </div>
-      <button className="btn">
-        {editMode ? "Editar" : "Cargar"}
-      </button>
-      {
-        editMode &&  <button onClick={()=>setEditMode(false)} className="btn  btn-danger">
+      <button className="btn">{editMode ? "Editar" : "Cargar"}</button>
+      {editMode && (
+        <button onClick={() => setEditMode(false)} className="btn  btn-danger">
           Cancelar
-        </button> 
-      }
+        </button>
+      )}
     </Container>
   );
 };

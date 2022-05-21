@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
-import db from "./../../../../firebase/firebaseConfig";
+import {db} from "./../../../../firebase/firebaseConfig";
 import Container from "./style";
 import FormJugadores from "../formJugadores/FormJugadores";
 import { motion } from "framer-motion";

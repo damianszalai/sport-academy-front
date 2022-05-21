@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../atoms/colors";
+import { devices } from "../../atoms/devices";
 
 const Container = styled.nav`
   /* The dropdown container */
@@ -25,7 +26,11 @@ const Container = styled.nav`
       border-radius: 4px;
       list-style: none;
       display: none;
-      position: absolute;
+      position: relative;
+      @media ${devices.laptop} {
+        position: absolute;
+        
+      }
       background-color: #f9f9f9;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
