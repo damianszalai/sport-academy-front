@@ -62,7 +62,8 @@ const Usuarios = ({ deportes }) => {
                 <i className="bi bi-pencil"></i>
               </button>
             </div>
-            <ImageUser />
+            <img src={usuario.img} alt="prueba"/>
+           {/*  <ImageUser /> */}
             <h2>{usuario.nombre}</h2>
             <p>{usuario.edad}</p>
             <p>{usuario.deporte}</p>

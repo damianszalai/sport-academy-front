@@ -17,6 +17,7 @@ const FormJugadores = ({
     deporte: "jugadoresTenis",
     description: "",
     id: "",
+    img: ""
   });
 
   const [progress, setProgress] = useState(0);
@@ -41,7 +42,7 @@ const FormJugadores = ({
     },(err)=>console.log(err),
     ()=> {
         getDownloadURL(uploadTask.snapshot.ref)
-        .then(url => console.log(url))
+        .then(url => setDatos({...datos, img:url}))
     });
   };
 
