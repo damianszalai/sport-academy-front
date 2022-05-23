@@ -15,17 +15,20 @@ const Container = styled.section`
     margin: 12px 0;
     display: grid;
     list-style: none;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 12px;
 
     @media ${devices.laptop} {
         grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        max-width: 1080px;
     }
 
    
     li {
-     
+     border-radius: 4px;
       background: ${Colors.white};
       position: relative;
       text-align: center;

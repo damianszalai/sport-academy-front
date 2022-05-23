@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, {/*  useContext, */ useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "../../../../assets/index";
+/* import { AuthContext } from "../../../../auth/authContext";
+import { types } from "../../../../types/types"; */
 import NavBarDrop from "./NavBarDrop";
 import Container from "./style";
 
 export const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+/*   const { user, dispatch } = useContext(AuthContext);
+
+  const handleLogout =()=> {
+
+    const action = {
+      type: types.logout
+    };
+    dispatch(action)
+  } */
+
 
   return (
     <Container className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -51,33 +63,7 @@ export const Navbar = () => {
               </NavLink>
             </li>
             <NavBarDrop />
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                to="#navbarDropdownMenuLink"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown link
-              </Link>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <NavLink className="dropdown-item" to="/jugadores/futbol">
-                    Fútbol
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" to="/jugadores/tenis">
-                    Tenis
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
+
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -100,6 +86,26 @@ export const Navbar = () => {
                 Colegio Olimpo
               </NavLink>
             </li>
+            {/* { !user.logged
+           ? <li>
+              
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/login"
+              >
+                <span>Login</span>
+              </NavLink>
+            </li>
+            :
+              
+            <li>
+              <span>{user.name}</span>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+        } */}
           </div>
         </div>
       </div>
