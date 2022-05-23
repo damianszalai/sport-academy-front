@@ -22,7 +22,7 @@ const AnimatedRoute = () => {
         <Route path="/academia-tennis" element={<AcademiaTennis />} />
         <Route path="/becas-deportivas-usa" element={<BecasDeportivas />} />
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
-        <Route path="/login" element={<LoginScreen/>} />
+        <Route path="/LoginScreen" element={<LoginScreen/>} />
 
         <Route
           path="/academia-tennis/grupo-proyeccion"

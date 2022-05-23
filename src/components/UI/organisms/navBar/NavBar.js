@@ -86,6 +86,18 @@ export const Navbar = () => {
                 Colegio Olimpo
               </NavLink>
             </li>
+            ? <li>
+              
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/loginScreen"
+              >
+                <span>Login</span>
+              </NavLink>
+            </li>
             {/* { !user.logged
            ? <li>
               
