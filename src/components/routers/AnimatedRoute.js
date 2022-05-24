@@ -11,6 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import JugadoresFutbol from "../pages/jugadoresFutbol/JugadoresFutbol";
 import JugadoresTenis from "../pages/jugadoresTenis/JugadoresTenis";
 import LoginScreen from "../pages/loginScreen/LoginScreen";
+import RegisterScreen from "../pages/loginScreen/RegisterScreen";
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -22,7 +23,8 @@ const AnimatedRoute = () => {
         <Route path="/academia-tennis" element={<AcademiaTennis />} />
         <Route path="/becas-deportivas-usa" element={<BecasDeportivas />} />
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
-        <Route path="/LoginScreen" element={<LoginScreen/>} />
+        <Route path="/login" element={<LoginScreen/>} />
+        <Route path="/register" element={<RegisterScreen/>} />
 
         <Route
           path="/academia-tennis/grupo-proyeccion"

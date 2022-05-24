@@ -93,7 +93,7 @@ export const Navbar = () => {
                   "nav-item nav-link " + (isActive && "active")
                 }
                 exact="true"
-                to="/loginScreen"
+                to="/login"
               >
                 <span>Login</span>
               </NavLink>

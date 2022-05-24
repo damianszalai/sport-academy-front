@@ -26,7 +26,8 @@ const FormJugadores = ({
       ...datos,
       [event.target.name]: event.target.value,
     });
-    console.log(datos);
+    let val = event.target.value.split('\\')
+    console.log(val[val.length - 1])
   };
 
   const uploadFile = (file) => {
@@ -41,8 +42,9 @@ const FormJugadores = ({
       setProgress(prog);
     },(err)=>console.log(err),
     ()=> {
+      console.log(uploadTask.snapshot.ref)
         getDownloadURL(uploadTask.snapshot.ref)
-        .then(url => setDatos({...datos, img:'roman'}))
+        .then(url => setDatos({...datos, img:uploadTask.snapshot.ref}))
     });
   };
 

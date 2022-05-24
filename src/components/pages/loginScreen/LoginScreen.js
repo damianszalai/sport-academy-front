@@ -1,7 +1,4 @@
 import React from "react";
-/* import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../../auth/authContext";
-import { types } from "../../../../types/types"; */
 import Container from "./style";
 import { useDispatch } from "react-redux";
 import Header from "../../UI/molecules/header/Header";
@@ -10,6 +7,9 @@ import {
   startGoogleLogin,
   startLoginEmailPassword,
 } from "../../../actions/auth";
+import { Link } from "react-router-dom";
+import validator from "validator";
+import { removeError, setError } from "../../../actions/ui";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -23,11 +23,27 @@ const LoginScreen = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    dispatch(startLoginEmailPassword(email, password));
+    if (isFormValid()) {
+      dispatch(startLoginEmailPassword(email, password));
+    }
   };
 
   const handleGoogleLogin = () => {
-    dispatch(startGoogleLogin());
+    if (isFormValid()) {
+      dispatch(startGoogleLogin());
+    }
+  };
+
+  const isFormValid = () => {
+    if (!validator.isEmail(email)) {
+      dispatch(setError("El Email no es valido."));
+      return false;
+    } else if (password.length < 5) {
+      dispatch(setError("La clave debe tener por lo menos 6 caracteres."));
+      return false;
+    }
+    dispatch(removeError());
+    return true;
   };
 
   return (
@@ -68,9 +84,13 @@ const LoginScreen = () => {
           </label>
         </div> */}
         <button className="btn btn-primary btn-outline">Login</button>
+        <Link to="/register">Create new account</Link>
       </Container>
-      <button className="btn btn-primary btn-outline" onClick={handleGoogleLogin}>
-      <i className="bi bi-google"></i>   Sign In with Google
+      <button
+        className="btn btn-primary btn-outline"
+        onClick={handleGoogleLogin}
+      >
+        <i className="bi bi-google"></i> Sign In with Google
       </button>
     </>
   );
