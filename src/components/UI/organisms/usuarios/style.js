@@ -32,6 +32,11 @@ const Container = styled.section`
       background: ${Colors.white};
       position: relative;
       text-align: center;
+
+      img { 
+        position: relative;
+        top: 50px;
+        max-width: 100%;}
       
 
       >div {
@@ -44,6 +49,7 @@ const Container = styled.section`
               border-radius: 50%;
               position: relative;
               top: 50px;
+              max-width: 100px;
           }
       }
 h2 {

@@ -26,8 +26,13 @@ const FormJugadores = ({
       ...datos,
       [event.target.name]: event.target.value,
     });
-    let val = event.target.value.split('\\')
-    console.log(val[val.length - 1])
+  };
+
+  const handleInputChangeFile = (event) => {
+    setDatos({
+      ...datos,
+      [event.target.name]: event.target.files[0].name,
+    });
   };
 
   const uploadFile = (file) => {
@@ -40,12 +45,13 @@ const FormJugadores = ({
         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       );
       setProgress(prog);
-    },(err)=>console.log(err),
-    ()=> {
-      console.log(uploadTask.snapshot.ref)
+    }, (err) => console.log(err),
+      () => {
         getDownloadURL(uploadTask.snapshot.ref)
-        .then(url => setDatos({...datos, img:uploadTask.snapshot.ref}))
-    });
+          .then(url => {
+            setDatos({ ...datos, img: url })
+          })
+      });
   };
 
   const enviarDatos = async (event) => {
@@ -53,7 +59,6 @@ const FormJugadores = ({
 
     const file = event.target[0].files[0]
     uploadFile(file)
- 
 
     const docRef = await addDoc(collection(db, datos.deporte), datos);
     console.log("Document written with ID: ", docRef.id);
@@ -72,13 +77,13 @@ const FormJugadores = ({
     editMode
       ? setDatos(editUser)
       : setDatos({
-          nombre: "",
-          edad: 0,
-          deporte: "jugadoresTenis",
-          description: "",
-          id: "",
-          img:""
-        });
+        nombre: "",
+        edad: 0,
+        deporte: "jugadoresTenis",
+        description: "",
+        id: "",
+        img: ""
+      });
   }, [editMode, editUser]);
   /*   db.collection("users").doc(doc.id).update({foo: "bar"}); */
 
@@ -86,7 +91,7 @@ const FormJugadores = ({
     <Container onSubmit={editMode ? editarDatos : enviarDatos}>
       <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
       <div>
-        <input type="file" onChange={handleInputChange} name="img"/>
+        <input type="file" onChange={handleInputChangeFile} name="img" />
       </div>
       <h3>uploaded {progress} %</h3>
       <div>
