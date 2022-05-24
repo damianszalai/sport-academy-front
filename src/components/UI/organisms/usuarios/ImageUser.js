@@ -1,24 +1,21 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-/* 
-const baseURL = "https://jsonplaceholder.typicode.com/posts/1"; */
-const baseURL = "https://randomuser.me/api/?gender=male";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import React, { useState } from 'react'
 
-export default function ImageUser() {
-  const [post, setPost] = useState(null);
+const ImageUser = ({ urlImagen }) => {
+  const [imagen, setimagen] = useState("");
 
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-      console.log(response.data.results);
+  const storage = getStorage();
+  getDownloadURL(ref(storage, `files/${urlImagen}`))
+    .then((url) => {
+      setimagen(url);
+    })
+    .catch((error) => {
+      console.error(error)
     });
-  }, []);
-
-  if (!post) return null;
-
-  return (
-    <div>
-      <img src={post.results[0].picture.large}/>
-    </div>
-  );
+  return (<div>
+    <img src={imagen} alt="Imagen usuario"></img>
+  </div>
+  )
 }
+
+export default ImageUser
