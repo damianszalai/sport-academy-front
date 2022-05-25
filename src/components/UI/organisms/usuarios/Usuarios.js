@@ -14,10 +14,14 @@ const Usuarios = ({ deportes }) => {
 
   useEffect(() => {
     const obtenerDatos = async () => {
-      const datos = await getDocs(collection(db, deportes));
-      const usu = datos.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setUsuarios(usu);
-      console.log(usu);
+      try {
+        const datos = await getDocs(collection(db, deportes));
+        const usu = datos.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        setUsuarios(usu);
+        console.log(usu);
+      } catch (err) {
+        console.error(err);
+      }
     };
     obtenerDatos();
   }, []);

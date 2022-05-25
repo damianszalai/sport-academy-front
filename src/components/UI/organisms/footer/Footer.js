@@ -38,7 +38,11 @@ const Footer = () => {
               <h6 className="text-uppercase fw-bold mb-4">Contacto</h6>
               <p>
                 <i className="bi bi-pin-map-fill"></i> Club Palestino, Av.
-                Kennedy N°9351
+                Kennedy N°9351.
+              </p>
+              <p>
+                <i className="bi bi-pin-map-fill"></i> Club Palestino, Av.
+                Kennedy N°9351.
               </p>
               <p>
                 <i className="bi bi-envelope-fill"></i> contacto@sportacademy.cl

@@ -12,6 +12,8 @@ import JugadoresFutbol from "../pages/jugadoresFutbol/JugadoresFutbol";
 import JugadoresTenis from "../pages/jugadoresTenis/JugadoresTenis";
 import LoginScreen from "../pages/loginScreen/LoginScreen";
 import RegisterScreen from "../pages/loginScreen/RegisterScreen";
+import NewPost from "../pages/news/NewPost";
+import News from "../pages/news/News";
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -25,6 +27,8 @@ const AnimatedRoute = () => {
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
         <Route path="/login" element={<LoginScreen/>} />
         <Route path="/register" element={<RegisterScreen/>} />
+        <Route path="/newpost" element={<NewPost/>} />
+        <Route path="/noticias" element={<News/>} />
 
         <Route
           path="/academia-tennis/grupo-proyeccion"
