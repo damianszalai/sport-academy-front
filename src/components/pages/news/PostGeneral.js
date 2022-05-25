@@ -4,6 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
 import Header from "../../UI/molecules/header/Header";
 import StylePostGeneral from "./stylePostGeneral";
+import ImagePost from "./ImagePost";
 
 const PostGeneral = () => {
   const [datos, setDatos] = useState({
@@ -37,7 +38,7 @@ const PostGeneral = () => {
       <div className="container">
         <p className="date">{datos.date}</p>
         <p className="categoria">{datos.categoria}</p>
-        {/* <img src={datos.img === "" ? "http://via.placeholder.com/640x360" : datos.img} alt="imagen noticia"></img> */}
+        <ImagePost urlImagen={datos.img}  alt="imagen noticia"></ImagePost>
         <figure>
           <img src="http://via.placeholder.com/1280x360" alt="placeholder" />
         </figure>

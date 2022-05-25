@@ -109,7 +109,8 @@ const News = () => {
                 key={i}
                 titulo={noticia.titulo}
                 date={noticia.date}
-                desc={noticia.desc}
+                desc={noticia.desc} 
+                
               />
             ))}
           </div>
@@ -126,7 +127,8 @@ const News = () => {
                 key={i}
                 titulo={noticia.titulo}
                 date={noticia.date}
-                desc={noticia.desc}
+                desc={noticia.desc} 
+                
               />
             ))}
           </div>
@@ -143,6 +145,7 @@ const News = () => {
                 titulo={noticia.titulo}
                 date={noticia.date}
                 desc={noticia.desc}
+                
               />
             ))}
           </div>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "./../../../firebase/firebaseConfig";
+import { db, storage } from "./../../../firebase/firebaseConfig";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../UI/molecules/subheader/SubHeader";
 
 const NewPost = () => {
+  const [progress, setProgress] = useState(0);
   const returnDate = () => {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, "0");
@@ -68,12 +70,36 @@ const NewPost = () => {
     return true;
   };
 
+  const uploadFile = (file) => {
+    if (!file) return;
+    const storageRef = ref(storage, `/news/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setPost({ ...post, img: url });
+        });
+      }
+    );
+  };
+
   const handlerSubmit = async (event) => {
     event.preventDefault();
-    if (isFormValid()) {
-      console.log(post);
 
-      const docRef = await addDoc(collection(db, 'noticias'), post);
+    if (isFormValid()) {
+      const file = event.target[0].files[0];
+      uploadFile(file);
+
+      const docRef = await addDoc(collection(db, "noticias"), post);
       console.log("Document written with ID: ", docRef.id);
       setMsgError(false);
     }
@@ -82,13 +108,13 @@ const NewPost = () => {
   return (
     <Container>
       <SubHeader title="New Post" />
-     
+
       <form onSubmit={handlerSubmit}>
-      {msgError && (
-        <div className="alert alert-danger" role="alert">
-          {msgError}
-        </div>
-      )}
+        {msgError && (
+          <div className="alert alert-danger" role="alert">
+            {msgError}
+          </div>
+        )}
         <div className="form-group">
           <label>Titulo</label>
           <input
@@ -116,6 +142,18 @@ const NewPost = () => {
             name="img"
           ></input>
         </div>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style={{ width: `${progress}%` }}
+          >
+            {progress} %
+          </div>
+        </div>
         <div className="form-group">
           <label>Fecha</label>
           <input
@@ -137,7 +175,7 @@ const NewPost = () => {
         <div className="form-group">
           <label>Categoria</label>
           <select
-          className="form-select"
+            className="form-select"
             value={post.categoria}
             onChange={handleInputChange}
             name="categoria"
@@ -155,7 +193,7 @@ const NewPost = () => {
             onChange={handleInputChange}
             type="checkbox"
             className="form-check-input"
-           checked={post.activa}
+            checked={post.activa}
           />
           <label className="form-check-label" htmlFor="exampleCheck1">
             activa
