@@ -12,6 +12,7 @@ const Container = styled.form`
 .progress-bar {
   margin: 0;
   background: ${Colors.yellow};
+  color: ${Colors.black}
 }
   h2 {
     font-weight: bold;
