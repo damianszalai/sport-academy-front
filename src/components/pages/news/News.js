@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../UI/molecules/header/Header";
 import { query, where, collection, getDocs } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
-import Post from "./post";
+import StylePost from "./stylePost";
 import NewPost from "./NewPost";
 import NewCard from "./NewCard";
 
@@ -10,6 +10,7 @@ const News = () => {
   const [noticias, setNoticias] = useState([]);
   const [noticiasFutbol, setNoticiasFutbol] = useState([]);
   const [noticiasTenis, setNoticiasTenis] = useState([]);
+  const [noticiasNoticias, setNoticiasNoticias] = useState([]);
   const [form, setForm] = useState(false);
 
   useEffect(() => {
@@ -27,6 +28,11 @@ const News = () => {
         const futbol = query(
           collection(db, "noticias"),
           where("categoria", "==", "futbol"),
+          where("activa", "==", true)
+        );
+        const noti = query(
+          collection(db, "noticias"),
+          where("categoria", "==", "noticia"),
           where("activa", "==", true)
         );
 
@@ -48,9 +54,16 @@ const News = () => {
           id: doc.id,
         }));
 
+        const datosNoticias = await getDocs(noti);
+        const usuNoticias = datosNoticias.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
         setNoticias(usu);
         setNoticiasTenis(usuTenis);
         setNoticiasFutbol(usuFutbol);
+        setNoticiasNoticias(usuNoticias);
 
         console.log(usu);
       } catch (err) {
@@ -64,7 +77,7 @@ const News = () => {
     <>
       <Header title="Noticias"></Header>
       <div>{form && <NewPost />}</div>
-      <Post className="container-fluid">
+      <StylePost className="container-fluid">
         <button onClick={() => setForm(!form)} className="btn btn-primary">
           Nueva Noticias
         </button>
@@ -74,6 +87,7 @@ const News = () => {
           <div>
             {noticias.map((noticia, i) => (
               <NewCard
+              id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
@@ -83,13 +97,14 @@ const News = () => {
             ))}
           </div>
         </div>
-      </Post>
-      <Post className="container-fluid">
+      </StylePost>
+      <StylePost className="container-fluid">
         <div className="container">
           <h2>Noticias de Fútbol</h2>
           <div>
             {noticiasFutbol.map((noticia, i) => (
               <NewCard
+              id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
@@ -99,12 +114,29 @@ const News = () => {
             ))}
           </div>
         </div>
-      </Post>
-      <Post className="container-fluid">
+      </StylePost>
+      <StylePost className="container-fluid">
         <div className="container">
           <h2>Noticias de Tenis</h2>
           <div>
             {noticiasTenis.map((noticia, i) => (
+              <NewCard
+              id={noticia.id}
+                categoria={noticia.categoria}
+                key={i}
+                titulo={noticia.titulo}
+                date={noticia.date}
+                desc={noticia.desc}
+              />
+            ))}
+          </div>
+        </div>
+      </StylePost>
+      <StylePost className="container-fluid">
+        <div className="container">
+          <h2>Noticias</h2>
+          <div>
+            {noticiasNoticias.map((noticia, i) => (
               <NewCard
                 categoria={noticia.categoria}
                 key={i}
@@ -115,7 +147,7 @@ const News = () => {
             ))}
           </div>
         </div>
-      </Post>
+      </StylePost>
     </>
   );
 };

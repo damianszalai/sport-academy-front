@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../UI/atoms/colors";
 import { devices } from "../../UI/atoms/devices";
 
-const Post = styled.section`
+const StylePost = styled.section`
   background: ${Colors.black};
   > div {
       > h2 {
@@ -35,8 +35,14 @@ const Post = styled.section`
       div:last-child {
           position: relative;
           padding: 12px;
+          height: calc(100% - 100px);
+          display: flex;
+          flex-direction: column;
           h2{
               font-weight: bold;
+          }
+          a{
+            margin-top: a;
           }
         p {
             margin: 0;
@@ -64,4 +70,4 @@ const Post = styled.section`
   }
 `;
 
-export default Post;
+export default StylePost;

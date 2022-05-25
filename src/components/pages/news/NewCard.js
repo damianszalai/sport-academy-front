@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
-const NewCard = ({titulo, categoria, date, desc}) => {
+const NewCard = ({titulo, categoria, date, desc, id}) => {
   return (
     <motion.article
     initial={{ transform: "scale(0)", opacity: 0 }}
@@ -14,6 +15,7 @@ const NewCard = ({titulo, categoria, date, desc}) => {
       <h2>{titulo}</h2>
       <p className="date">{date}</p>
       <p className="desc">{desc}</p>
+      <Link to={`/noticias/${id}`}>Ver Más</Link>
     </div>
   </motion.article>
   )

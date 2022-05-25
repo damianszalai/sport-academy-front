@@ -110,6 +110,7 @@ const NewPost = () => {
           <label>Imagen</label>
           <input
             /* value={post.img} */
+            className="form-control"
             onChange={handleInputChange}
             type="file"
             name="img"
@@ -154,7 +155,7 @@ const NewPost = () => {
             onChange={handleInputChange}
             type="checkbox"
             className="form-check-input"
-            checked
+           checked={post.activa}
           />
           <label className="form-check-label" htmlFor="exampleCheck1">
             activa
