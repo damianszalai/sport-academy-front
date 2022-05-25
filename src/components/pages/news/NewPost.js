@@ -24,7 +24,7 @@ const NewPost = () => {
     img: "",
     autor: "",
     date: returnDate(),
-    activa: false,
+    activa: true,
   });
 
   const handleInputChange = (event) => {
@@ -154,6 +154,7 @@ const NewPost = () => {
             onChange={handleInputChange}
             type="checkbox"
             className="form-check-input"
+            checked
           />
           <label className="form-check-label" htmlFor="exampleCheck1">
             activa
