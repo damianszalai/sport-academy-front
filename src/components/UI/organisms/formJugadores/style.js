@@ -9,7 +9,10 @@ const Container = styled.form`
   margin-top: 24px;
   padding: 24px;
   max-width: 600px;
-
+.progress-bar {
+  margin: 0;
+  background: ${Colors.yellow};
+}
   h2 {
     font-weight: bold;
     font-size: 3em;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db, storage } from "./../../../../firebase/firebaseConfig";
-import Container from "./style";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Container from "./style";
 
 const FormJugadores = ({
   usuarios,
@@ -17,7 +17,7 @@ const FormJugadores = ({
     deporte: "jugadoresTenis",
     description: "",
     id: "",
-    img: ""
+    img: "",
   });
 
   const [progress, setProgress] = useState(0);
@@ -40,25 +40,28 @@ const FormJugadores = ({
     const storageRef = ref(storage, `/files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on("state_changed", (snapshot) => {
-      const prog = Math.round(
-        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      );
-      setProgress(prog);
-    }, (err) => console.log(err),
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (err) => console.log(err),
       () => {
-        getDownloadURL(uploadTask.snapshot.ref)
-          .then(url => {
-            setDatos({ ...datos, img: url })
-          })
-      });
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setDatos({ ...datos, img: url });
+        });
+      }
+    );
   };
 
   const enviarDatos = async (event) => {
     event.preventDefault();
 
-    const file = event.target[0].files[0]
-    uploadFile(file)
+    const file = event.target[0].files[0];
+    uploadFile(file);
 
     const docRef = await addDoc(collection(db, datos.deporte), datos);
     console.log("Document written with ID: ", docRef.id);
@@ -77,13 +80,13 @@ const FormJugadores = ({
     editMode
       ? setDatos(editUser)
       : setDatos({
-        nombre: "",
-        edad: 0,
-        deporte: "jugadoresTenis",
-        description: "",
-        id: "",
-        img: ""
-      });
+          nombre: "",
+          edad: 0,
+          deporte: "jugadoresTenis",
+          description: "",
+          id: "",
+          img: "",
+        });
   }, [editMode, editUser]);
   /*   db.collection("users").doc(doc.id).update({foo: "bar"}); */
 
@@ -91,9 +94,32 @@ const FormJugadores = ({
     <Container onSubmit={editMode ? editarDatos : enviarDatos}>
       <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
       <div>
-        <input type="file" onChange={handleInputChangeFile} name="img" />
+        <input
+          className="form-control"
+          type="file"
+          onChange={handleInputChangeFile}
+          name="img"
+        />
       </div>
       <h3>uploaded {progress} %</h3>
+{/*       <div className="progress">
+        <div
+          className="progress-bar"
+          role="progressbar"
+          aria-valuenow="10"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div> */}
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+ /*  style={{ width: `${progress}%` }} */
+  style={{ width: `50%` }}
+  ></div>
+</div>
+
       <div>
         <label>Nombre</label>
         <input
@@ -118,9 +144,9 @@ const FormJugadores = ({
       <div>
         <label>Edad</label>
         <input
-          value={datos.edad}
           type="number"
           name="edad"
+          value={datos.edad}
           onChange={handleInputChange}
         ></input>
       </div>
