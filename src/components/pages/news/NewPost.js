@@ -12,7 +12,7 @@ const NewPost = () => {
     let dd = String(today.getDate()).padStart(2, "0");
     let mm = String(today.getMonth() + 1).padStart(2, "0");
     let yyyy = today.getFullYear();
-    today = mm + "/" + dd + "/" + yyyy;
+    today = yyyy + "-" + mm + "-" + dd;
     return today;
   };
 
@@ -96,7 +96,7 @@ const NewPost = () => {
     event.preventDefault();
 
     if (isFormValid()) {
-      const file = event.target[0].files[0];
+      const file = event.target[2].files[0];
       uploadFile(file);
 
       const docRef = await addDoc(collection(db, "noticias"), post);
@@ -142,9 +142,9 @@ const NewPost = () => {
             name="img"
           ></input>
         </div>
-        <div class="progress">
+        <div className="progress">
           <div
-            class="progress-bar"
+            className="progress-bar"
             role="progressbar"
             aria-valuenow={progress}
             aria-valuemin="0"
