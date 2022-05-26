@@ -4,10 +4,20 @@ import { devices } from "../../UI/atoms/devices";
 
 const StylePost = styled.section`
   background: ${Colors.black};
+  > button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1111;
+  }
   > div {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
+    @media ${devices.laptop} {
+      margin: auto;
+    }
     > h2 {
       color: ${Colors.white};
       display: block;
@@ -25,9 +35,8 @@ const StylePost = styled.section`
       display: flex;
 
       @media ${devices.laptop} {
-        display: grid;
-        grid-gap: 12px;
-        grid-template-columns: repeat(4, 1fr);
+        overflow: auto;
+       display: flex;
       }
       article {
         background: white;
@@ -37,6 +46,10 @@ const StylePost = styled.section`
         margin: 0 12px;
         display: flex;
         flex-direction: column;
+        @media ${devices.laptop} {
+          width: 30%;
+          min-width: auto;
+        }
         figure {
           img {
             width: 100%;

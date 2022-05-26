@@ -1,73 +1,70 @@
 import styled from "styled-components";
 import { Colors } from "../../UI/atoms/colors";
-import { devices } from "../../UI/atoms/devices";
 
-const StylePost = styled.section`
+const Container = styled.div`
   background: ${Colors.black};
-  > div {
-      > h2 {
-          color: ${Colors.white};
-          display: block;
-          font-weight: bold;
-          font-size: 3em;
-          padding: 48px 0 24px;
-      }
-      >div {
-      display: grid;
-      grid-template-columns: repeat(1fr);
-      grid-gap: 12px;
-      
-      @media ${devices.laptop} {
-          grid-template-columns: repeat(4, 1fr);
-        }
-    article {
-      background: white;
-      border-radius: 4px;
-      overflow: hidden;
+  form {
+    width: 100%;
+    background: white;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 24px;
+    padding: 24px;
+    max-width: 600px;
 
-      > div {
-        &:first-child {
-          width: 100%;
-          height: 100px;
-          background: ${Colors.yellow};
+    h2 {
+      font-weight: bold;
+      font-size: 3em;
+      border-bottom: solid 1px ${Colors.black};
+      color: ${Colors.black};
+    }
+    div {
+      margin: 12px 0;
+
+      label {
+        font-weight: bold;
+      }
+      input,
+      textarea,
+      select {
+        display: block;
+        width: 100%;
+        padding: 6px;
+      }
+      input.form-check-input[type="checkbox"] {
+        width: inherit;
+      }
+      select,
+      input.form-check-input[type="checkbox"],
+      input[type="date"] {
+        &:hover {
+          cursor: pointer;
         }
       }
-      div:last-child {
-          position: relative;
-          padding: 12px;
-          height: calc(100% - 100px);
-          display: flex;
-          flex-direction: column;
-          h2{
-              font-weight: bold;
-          }
-          a{
-            margin-top: auto;
-          }
-        p {
-            margin: 0;
-            &.date {
-                font-style: italic;
-                color: grey;
-                position: absolute;
-                right: 12px;
-                top: 12px;
-            }
-            &.category {
-                text-transform: capitalize;
-            }
-          &.desc {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 3; /* number of lines to show */
-            -webkit-box-orient: vertical;
-          }
-        }
+      textarea {
+        min-height: 200px;
       }
     }
-}
+
+    .btn {
+      background: transparent;
+      border: solid 1px ${Colors.yellow};
+      color: ${Colors.black};
+
+      background: ${Colors.yellow};
+      font-weight: bold;
+      margin-top: 6px;
+      border-radius: 0px;
+      margin-right: 12px;
+      border-radius: 4px;
+
+      &.btn-danger {
+        background: ${Colors.red};
+        border: solid 1px ${Colors.red};
+        color: ${Colors.white};
+      }
+    }
   }
 `;
 
-export default StylePost;
+export default Container;
