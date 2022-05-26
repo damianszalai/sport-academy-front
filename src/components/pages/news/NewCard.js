@@ -17,7 +17,9 @@ const NewCard = ({ titulo, categoria, date, desc, img, id }) => {
         <p className="date">{date}</p>
         <p className="desc">{desc}</p>
       </div>
-        <Link to={`/noticias/${id}`}>Ver Más</Link>
+      <div>
+        <Link className="btn btn-primary" to={`/noticias/${id}`}>Ver Más</Link>
+      </div>
     </motion.article>
   );
 };
