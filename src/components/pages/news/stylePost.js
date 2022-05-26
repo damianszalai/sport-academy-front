@@ -35,31 +35,23 @@ const StylePost = styled.section`
       overflow: hidden;
       min-width: 80%;
       margin: 0 12px;
+      display: flex;
+      flex-direction: column;
       figure {
         img{
           width: 100%;
         }
       }
 
-      > div {
-        &:first-child {
-          width: 100%;
-          height: 100px;
-          background: ${Colors.yellow};
-        }
-      }
-      div:last-child {
+      div:nth-child(2) {
           position: relative;
           padding: 12px;
-          height: 89%;
           display: flex;
           flex-direction: column;
           h2{
               font-weight: bold;
           }
-          a{
-            margin-top: auto;
-          }
+        
         p {
             margin: 0;
             &.date {
@@ -80,6 +72,10 @@ const StylePost = styled.section`
             -webkit-box-orient: vertical;
           }
         }
+      }
+      > a {
+        padding: 12px;
+        margin-top: auto;
       }
     }
 }
