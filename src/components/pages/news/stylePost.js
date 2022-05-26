@@ -35,6 +35,11 @@ const StylePost = styled.section`
       overflow: hidden;
       min-width: 80%;
       margin: 0 12px;
+      figure {
+        img{
+          width: 100%;
+        }
+      }
 
       > div {
         &:first-child {
