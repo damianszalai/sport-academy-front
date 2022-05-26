@@ -149,7 +149,7 @@ const NewPost = () => {
             aria-valuenow={progress}
             aria-valuemin="0"
             aria-valuemax="100"
-            style={{ width: `${progress}%` }}
+            style={{ width: `${progress}%`, margin: '0' }}
           >
             {progress} %
           </div>
