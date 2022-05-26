@@ -18,6 +18,7 @@ const StylePost = styled.section`
       >div {
       /*   background: red; */
         overflow-x: scroll;
+        overflow-y: hidden;
      /*  display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-gap: 12px; */
