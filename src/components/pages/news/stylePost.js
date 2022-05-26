@@ -48,6 +48,7 @@ const StylePost = styled.section`
           padding: 12px;
           display: flex;
           flex-direction: column;
+          margin: 0;
           h2 {
             font-weight: bold;
           }
