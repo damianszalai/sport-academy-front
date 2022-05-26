@@ -87,6 +87,7 @@ const News = () => {
           <div>
             {noticias.map((noticia, i) => (
               <NewCard
+              img={noticia.img}
               id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
@@ -104,6 +105,7 @@ const News = () => {
           <div>
             {noticiasFutbol.map((noticia, i) => (
               <NewCard
+              img={noticia.img}
               id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
@@ -122,6 +124,7 @@ const News = () => {
           <div>
             {noticiasTenis.map((noticia, i) => (
               <NewCard
+              img={noticia.img}
               id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}

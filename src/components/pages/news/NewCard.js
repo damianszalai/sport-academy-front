@@ -13,7 +13,6 @@ const NewCard = ({titulo, categoria, date, desc,img, id}) => {
    <div style={{backgroundImage: `url(${img})`}}></div>
     <div>
       <ImagePost urlImagen={img}/>
-      <p>{img}</p>
       <p className="category">{categoria}</p>
       <h2>{titulo}</h2>
       <p className="date">{date}</p>
