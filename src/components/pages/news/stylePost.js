@@ -51,14 +51,14 @@ const StylePost = styled.section`
       div:last-child {
           position: relative;
           padding: 12px;
-          height: calc(100% - 100px);
+          height: 89%;
           display: flex;
           flex-direction: column;
           h2{
               font-weight: bold;
           }
           a{
-            margin-top: a;
+            margin-top: auto;
           }
         p {
             margin: 0;
