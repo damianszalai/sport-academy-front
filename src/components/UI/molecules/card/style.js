@@ -51,7 +51,7 @@ const Container = styled.article`
       width: 70%;
 
       @media ${devices.laptop} {
-        background: yellow;
+        background: ${Colors.yellow};
         width: 100%;
         text-align: center;
         height: 100px;

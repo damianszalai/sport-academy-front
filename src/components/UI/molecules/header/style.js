@@ -29,7 +29,7 @@ const Container = styled.header`
     font-weight: bold;
     width: 60%;
     @media ${devices.laptop} {
-      width: 100%;
+      width: 40%;
     }
   }
 `;
