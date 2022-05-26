@@ -5,6 +5,9 @@ import { devices } from "../../UI/atoms/devices";
 const StylePost = styled.section`
   background: ${Colors.black};
   > div {
+    padding:0;
+    margin-left:0;
+    margin-right: 0;
       > h2 {
           color: ${Colors.white};
           display: block;
@@ -13,17 +16,24 @@ const StylePost = styled.section`
           padding: 48px 0 24px;
       }
       >div {
-      display: grid;
-      grid-template-columns: repeat(1fr);
-      grid-gap: 12px;
+      /*   background: red; */
+        overflow-x: scroll;
+     /*  display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 12px; */
+      display: flex;
       
       @media ${devices.laptop} {
+        display: grid;
+        grid-gap: 12px; 
           grid-template-columns: repeat(4, 1fr);
         }
     article {
       background: white;
       border-radius: 4px;
       overflow: hidden;
+      min-width: 80%;
+      margin: 0 12px;
 
       > div {
         &:first-child {

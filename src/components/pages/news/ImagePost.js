@@ -1,5 +1,5 @@
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const ImagePost = ({ urlImagen }) => {
   const [imagen, setimagen] = useState("");
@@ -10,12 +10,13 @@ const ImagePost = ({ urlImagen }) => {
       setimagen(url);
     })
     .catch((error) => {
-      console.error(error)
+      console.error(error);
     });
-  return (<figure>
-    <img src={imagen} alt="Imagen usuario"></img>
-  </figure>
-  )
-}
+  return (
+    <figure>
+      <img src={imagen} alt="Imagen usuario"></img>
+    </figure>
+  );
+};
 
-export default ImagePost
+export default ImagePost;

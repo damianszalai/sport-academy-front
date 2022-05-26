@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db, storage } from "./../../../firebase/firebaseConfig";
+import { db, storage } from "../../../firebase/firebaseConfig";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../UI/molecules/subheader/SubHeader";
 
-const NewPost = () => {
+const NewPostForm = () => {
   const [progress, setProgress] = useState(0);
   const returnDate = () => {
     let today = new Date();
@@ -207,4 +207,4 @@ const NewPost = () => {
   );
 };
 
-export default NewPost;
+export default NewPostForm;

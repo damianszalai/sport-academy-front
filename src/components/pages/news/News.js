@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Header from "../../UI/molecules/header/Header";
 import { query, where, collection, getDocs } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
-import StylePost from "./stylePost";
-import NewPost from "./NewPost";
+import NewPostForm from "./NewPostForm";
 import NewCard from "./NewCard";
+import StylePost from "./stylePost";
 
 const News = () => {
   const [noticias, setNoticias] = useState([]);
@@ -76,7 +76,7 @@ const News = () => {
   return (
     <>
       <Header title="Noticias"></Header>
-      <div>{form && <NewPost />}</div>
+      <div>{form && <NewPostForm />}</div>
       <StylePost className="container-fluid">
         <button onClick={() => setForm(!form)} className="btn btn-primary">
           Nueva Noticias
@@ -140,6 +140,7 @@ const News = () => {
           <div>
             {noticiasNoticias.map((noticia, i) => (
               <NewCard
+              img={noticia.img}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}

@@ -12,7 +12,7 @@ import JugadoresFutbol from "../pages/jugadoresFutbol/JugadoresFutbol";
 import JugadoresTenis from "../pages/jugadoresTenis/JugadoresTenis";
 import LoginScreen from "../pages/loginScreen/LoginScreen";
 import RegisterScreen from "../pages/loginScreen/RegisterScreen";
-import NewPost from "../pages/news/NewPost";
+import NewPostForm from "../pages/news/NewPostForm";
 import PostGeneral from "../pages/news/PostGeneral";
 import News from "../pages/news/News";
 
@@ -28,7 +28,7 @@ const AnimatedRoute = () => {
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
         <Route path="/login" element={<LoginScreen/>} />
         <Route path="/register" element={<RegisterScreen/>} />
-        <Route path="/newpost" element={<NewPost/>} />
+        <Route path="/newpost" element={<NewPostForm/>} />
         <Route path="/noticias" element={<News/>} />
         <Route path="/noticias/:id" element={<PostGeneral/>} />
 
