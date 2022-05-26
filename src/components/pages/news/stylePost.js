@@ -1,10 +1,31 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { Colors } from "../../UI/atoms/colors";
 import { devices } from "../../UI/atoms/devices";
 
 
+
+const loading = keyframes`
+to {
+    background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+  }
+`
 const StylePost = styled.section`
   background: ${Colors.black};
+  .placeHolderImg {
+    width: 100%;
+    height: 200px;
+    cursor: progress; 
+  background: 
+    linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient(#eee, #eee),
+    radial-gradient(38px circle at 19px 19px, #eee 50%, transparent 51%),
+    linear-gradient(#eee, #eee);  
+  background-repeat: no-repeat;
+  background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px; 
+  background-position: -315px 0, 0 0, 0px 190px, 50px 195px; 
+  animation: ${loading} 1.5s infinite;
+
+  }
   > button {
     position: fixed;
     bottom: 30px;
@@ -21,9 +42,6 @@ const StylePost = styled.section`
     &.cancel {
       background: ${Colors.red};
       transform: translateX(-50%) rotate(45deg);
-
-      i {
-      }
     }
 
     i {

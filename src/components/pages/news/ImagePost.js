@@ -11,11 +11,14 @@ const ImagePost = ({ urlImagen }) => {
     })
     .catch((error) => {
       console.error(error);
+     setimagen("//via.placeholder.com/350x150")
     });
   return (
+    <>
     <figure>
       <img src={imagen} alt="Imagen usuario"></img>
     </figure>
+    </>
   );
 };
 

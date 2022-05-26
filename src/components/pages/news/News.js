@@ -5,6 +5,7 @@ import { db } from "./../../../firebase/firebaseConfig";
 import NewPostForm from "./NewPostForm";
 import NewCard from "./NewCard";
 import StylePost from "./stylePost";
+import PlaceHolder from "./PlaceHolder";
 
 const News = () => {
   const [noticias, setNoticias] = useState([]);
@@ -98,7 +99,7 @@ const News = () => {
         <div className="container">
           <h2>Todas las noticias</h2>
           <div>
-            {noticias.map((noticia, i) => (
+            {noticias.length !== 0 ? noticias.map((noticia, i) => (
               <NewCard
                 img={noticia.img}
                 id={noticia.id}
@@ -109,7 +110,7 @@ const News = () => {
                 date={noticia.date}
                 desc={noticia.desc}
               />
-            ))}
+            )) : <PlaceHolder/> }
             {noticias.length > 5 && <button>+</button>}
           </div>
 
@@ -122,7 +123,7 @@ const News = () => {
         <div className="container">
           <h2>Noticias de Fútbol</h2>
           <div>
-            {noticiasFutbol.map((noticia, i) => (
+            {noticiasFutbol.length !== 0 ? noticiasFutbol.map((noticia, i) => (
               <NewCard
                 img={noticia.img}
                 id={noticia.id}
@@ -132,7 +133,7 @@ const News = () => {
                 date={noticia.date}
                 desc={noticia.desc}
               />
-            ))}
+            )): <PlaceHolder/> }
           </div>
           {noticiasFutbol.length > 5 && (
             <button className="btn btn-outline">Ver todas</button>
@@ -143,7 +144,7 @@ const News = () => {
         <div className="container">
           <h2>Noticias de Tenis</h2>
           <div>
-            {noticiasTenis.map((noticia, i) => (
+            {noticiasTenis.length !== 0 ? noticiasTenis.map((noticia, i) => (
               <NewCard
                 img={noticia.img}
                 id={noticia.id}
@@ -153,7 +154,7 @@ const News = () => {
                 date={noticia.date}
                 desc={noticia.desc}
               />
-            ))}
+            )): <PlaceHolder/> }
           </div>
           {noticiasTenis.length > 5 && (
             <button className="btn btn-outline">Ver todas</button>
@@ -164,7 +165,7 @@ const News = () => {
         <div className="container">
           <h2>Noticias</h2>
           <div>
-            {noticiasNoticias.map((noticia, i) => (
+            {noticiasNoticias.length !== 0 ? noticiasNoticias.map((noticia, i) => (
               <NewCard
                 img={noticia.img}
                 id={noticia.id}
@@ -174,7 +175,7 @@ const News = () => {
                 date={noticia.date}
                 desc={noticia.desc}
               />
-            ))}
+            )): <PlaceHolder/> }
           </div>
           {noticiasNoticias.length > 5 && (
             <button className="btn btn-outline">Ver todas</button>
