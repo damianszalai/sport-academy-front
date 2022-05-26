@@ -3,6 +3,17 @@ import { Colors } from "../../UI/atoms/colors";
 
 const Container = styled.div`
   background: ${Colors.black};
+  &.fijo {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: ${Colors.black};
+    top: 0;
+    z-index: 11;
+    form {
+      width: 90%;
+    }
+  }
   form {
     width: 100%;
     background: white;

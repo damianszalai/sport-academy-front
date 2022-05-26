@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../UI/molecules/header/Header";
-import { query, where, collection, getDocs } from "firebase/firestore";
+import { query, where, collection, getDocs, limit } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
 import NewPostForm from "./NewPostForm";
 import NewCard from "./NewCard";
@@ -18,22 +18,26 @@ const News = () => {
       try {
         const todas = query(
           collection(db, "noticias"),
-          where("activa", "==", true)
+          where("activa", "==", true),
+          limit(6)
         );
         const tenis = query(
           collection(db, "noticias"),
           where("categoria", "==", "tenis"),
-          where("activa", "==", true)
+          where("activa", "==", true),
+          limit(6)
         );
         const futbol = query(
           collection(db, "noticias"),
           where("categoria", "==", "futbol"),
-          where("activa", "==", true)
+          where("activa", "==", true),
+          limit(6)
         );
         const noti = query(
           collection(db, "noticias"),
           where("categoria", "==", "noticia"),
-          where("activa", "==", true)
+          where("activa", "==", true),
+          limit(6)
         );
 
         const datosTodas = await getDocs(todas);
@@ -76,10 +80,19 @@ const News = () => {
   return (
     <>
       <Header title="Noticias"></Header>
-      <div>{form && <NewPostForm />}</div>
+    
+        {form && (
+          <NewPostForm className="fijo"
+          
+          />
+        )}
+      
       <StylePost className="container-fluid">
-        <button onClick={() => setForm(!form)} className={form ? "btn btn-primary cancel" : "btn btn-primary"}>
-        <i class="bi bi-plus-lg"></i>
+        <button
+          onClick={() => setForm(!form)}
+          className={form ? "btn btn-primary cancel" : "btn btn-primary"}
+        >
+          <i class="bi bi-plus-lg"></i>
         </button>
 
         <div className="container">
@@ -89,6 +102,7 @@ const News = () => {
               <NewCard
                 img={noticia.img}
                 id={noticia.id}
+                num={i}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
@@ -96,7 +110,12 @@ const News = () => {
                 desc={noticia.desc}
               />
             ))}
+            {noticias.length > 5 && <button>+</button>}
           </div>
+
+          {noticias.length > 5 && (
+            <button className="btn btn-outline">Ver todas</button>
+          )}
         </div>
       </StylePost>
       <StylePost className="container-fluid">
@@ -115,6 +134,9 @@ const News = () => {
               />
             ))}
           </div>
+          {noticiasFutbol.length > 5 && (
+            <button className="btn btn-outline">Ver todas</button>
+          )}
         </div>
       </StylePost>
       <StylePost className="container-fluid">
@@ -133,6 +155,9 @@ const News = () => {
               />
             ))}
           </div>
+          {noticiasTenis.length > 5 && (
+            <button className="btn btn-outline">Ver todas</button>
+          )}
         </div>
       </StylePost>
       <StylePost className="container-fluid">
@@ -151,6 +176,9 @@ const News = () => {
               />
             ))}
           </div>
+          {noticiasNoticias.length > 5 && (
+            <button className="btn btn-outline">Ver todas</button>
+          )}
         </div>
       </StylePost>
     </>

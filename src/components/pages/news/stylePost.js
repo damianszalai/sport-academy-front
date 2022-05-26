@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../../UI/atoms/colors";
 import { devices } from "../../UI/atoms/devices";
 
+
 const StylePost = styled.section`
   background: ${Colors.black};
   > button {
@@ -15,19 +16,17 @@ const StylePost = styled.section`
     width: 40px;
     height: 40px;
     transform-origin: center;
-    transition: all .25s ease-out;
+    transition: all 0.25s ease-out;
     border: none;
     &.cancel {
-      background: red;
+      background: ${Colors.red};
       transform: translateX(-50%) rotate(45deg);
-      
 
       i {
-        
       }
     }
-  
-    i{
+
+    i {
       line-height: 1;
     }
   }
@@ -37,6 +36,11 @@ const StylePost = styled.section`
     margin-right: 0;
     @media ${devices.laptop} {
       margin: auto;
+    }
+
+    > button {
+      margin-top: 12px;
+      background: ${Colors.yellow};
     }
     > h2 {
       color: ${Colors.white};
@@ -56,7 +60,7 @@ const StylePost = styled.section`
 
       @media ${devices.laptop} {
         overflow: auto;
-       display: flex;
+        display: flex;
       }
       article {
         background: white;

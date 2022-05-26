@@ -5,7 +5,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../UI/molecules/subheader/SubHeader";
 
-const NewPostForm = () => {
+const NewPostForm = ({className}) => {
   const [progress, setProgress] = useState(0);
   const returnDate = () => {
     let today = new Date();
@@ -106,7 +106,7 @@ const NewPostForm = () => {
   };
 
   return (
-    <Container>
+    <Container className={className}>
       <SubHeader title="New Post" />
 
       <form onSubmit={handlerSubmit}>
