@@ -8,6 +8,7 @@ import TopHeader from "../UI/organisms/topHeader/TopHeader";
 import AnimatedRoute from "./AnimatedRoute";
 import { Provider } from "react-redux";
 import { store } from "./../../store/store";
+import Whatsapp from "../UI/atoms/wp/Whatsapp";
 
 /* const init = () => {
   return JSON.parse(localStorage.getItem("user")) || { logged: false };
@@ -31,6 +32,7 @@ const AppRouter = () => {
           <Navbar />
         </div>
         <AnimatedRoute />
+        <Whatsapp/>
         <Footer />
       </BrowserRouter>
     </Provider>
