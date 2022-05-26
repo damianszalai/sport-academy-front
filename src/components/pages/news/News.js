@@ -87,8 +87,8 @@ const News = () => {
           <div>
             {noticias.map((noticia, i) => (
               <NewCard
-              img={noticia.img}
-              id={noticia.id}
+                img={noticia.img}
+                id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
@@ -105,14 +105,13 @@ const News = () => {
           <div>
             {noticiasFutbol.map((noticia, i) => (
               <NewCard
-              img={noticia.img}
-              id={noticia.id}
+                img={noticia.img}
+                id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
                 date={noticia.date}
-                desc={noticia.desc} 
-                
+                desc={noticia.desc}
               />
             ))}
           </div>
@@ -124,14 +123,13 @@ const News = () => {
           <div>
             {noticiasTenis.map((noticia, i) => (
               <NewCard
-              img={noticia.img}
-              id={noticia.id}
+                img={noticia.img}
+                id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
                 date={noticia.date}
-                desc={noticia.desc} 
-                
+                desc={noticia.desc}
               />
             ))}
           </div>
@@ -143,13 +141,13 @@ const News = () => {
           <div>
             {noticiasNoticias.map((noticia, i) => (
               <NewCard
-              img={noticia.img}
+                img={noticia.img}
+                id={noticia.id}
                 categoria={noticia.categoria}
                 key={i}
                 titulo={noticia.titulo}
                 date={noticia.date}
                 desc={noticia.desc}
-                
               />
             ))}
           </div>
