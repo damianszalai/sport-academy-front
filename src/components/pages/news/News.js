@@ -78,8 +78,8 @@ const News = () => {
       <Header title="Noticias"></Header>
       <div>{form && <NewPostForm />}</div>
       <StylePost className="container-fluid">
-        <button onClick={() => setForm(!form)} className="btn btn-primary">
-          Nueva Noticias
+        <button onClick={() => setForm(!form)} className={form ? "btn btn-primary cancel" : "btn btn-primary"}>
+        <i class="bi bi-plus-lg"></i>
         </button>
 
         <div className="container">

@@ -6,10 +6,30 @@ const StylePost = styled.section`
   background: ${Colors.black};
   > button {
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1111;
+    border-radius: 50%;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    transform-origin: center;
+    transition: all .25s ease-out;
+    border: none;
+    &.cancel {
+      background: red;
+      transform: translateX(-50%) rotate(45deg);
+      
+
+      i {
+        
+      }
+    }
+  
+    i{
+      line-height: 1;
+    }
   }
   > div {
     padding: 0;
