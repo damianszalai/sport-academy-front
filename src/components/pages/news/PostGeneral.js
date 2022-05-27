@@ -5,6 +5,7 @@ import { db } from "./../../../firebase/firebaseConfig";
 import Header from "../../UI/molecules/header/Header";
 import StylePostGeneral from "./stylePostGeneral";
 import ImagePost from "./ImagePost";
+import BreadCrumb from "../../UI/atoms/breadCrumb/BreadCrumb";
 
 const PostGeneral = () => {
   const [datos, setDatos] = useState({
@@ -32,16 +33,17 @@ const PostGeneral = () => {
     obtenerDatos();
   }, []);
 
+  const secciones = [
+    {to:'/noticias', name:'Noticias'},
+    {to:'/noticias', name:datos.categoria, active: true}
+  ]
+
   return (
     <StylePostGeneral>
       <Header title={datos.categoria} />
       <div className="container">
         <p className="date">{datos.date}</p>
-        <p className="categoria">{datos.categoria}</p>
-      {/*   <figure>
-          <img src={datos.img} alt="placeholder" />
-        </figure> */}
-
+        <BreadCrumb secciones={secciones}/>
         <ImagePost urlImagen={datos.img} />
         
         <h2>{datos.titulo}</h2>
