@@ -10,6 +10,7 @@ const Container = styled.div`
     background: ${Colors.black};
     top: 0;
     z-index: 11;
+    overflow-y: auto;
     form {
       width: 90%;
     }
