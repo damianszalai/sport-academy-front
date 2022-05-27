@@ -4,8 +4,9 @@ import { db, storage } from "../../../firebase/firebaseConfig";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../UI/molecules/subheader/SubHeader";
+import toast, { Toaster } from "react-hot-toast";
 
-const NewPostForm = ({className}) => {
+const NewPostForm = ({ className }) => {
   const [progress, setProgress] = useState(0);
   const returnDate = () => {
     let today = new Date();
@@ -101,12 +102,36 @@ const NewPostForm = ({className}) => {
 
       const docRef = await addDoc(collection(db, "noticias"), post);
       console.log("Document written with ID: ", docRef.id);
+      toast.success("Se agrego correctamente", {
+        style: {
+          padding: '16px',
+          background: 'green',
+          color: 'white',
+          borderRadius: '4px'
+        },
+        iconTheme: {
+          primary: 'green',
+          secondary: 'white',
+        },
+      });
+      setPost({
+        titulo: "",
+        desc: "",
+        categoria: "",
+        id: "",
+        img: "",
+        autor: "",
+        date: returnDate(),
+        activa: true
+      })
       setMsgError(false);
     }
   };
 
+  
   return (
     <Container className={className}>
+      <Toaster position="bottom-left" />
       <SubHeader title="New Post" />
 
       <form onSubmit={handlerSubmit}>
@@ -149,7 +174,7 @@ const NewPostForm = ({className}) => {
             aria-valuenow={progress}
             aria-valuemin="0"
             aria-valuemax="100"
-            style={{ width: `${progress}%`, margin: '0' }}
+            style={{ width: `${progress}%`, margin: "0" }}
           >
             {progress} %
           </div>
