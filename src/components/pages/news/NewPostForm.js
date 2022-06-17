@@ -44,6 +44,13 @@ const NewPostForm = ({ className }) => {
           [event.target.name]: event.target.files[0].name,
         });
         break;
+        case "date":
+          setPost({
+            ...post,
+            [event.target.name]: event.target.value,
+          });
+        console.log(event.target.value);
+          break;
       default:
         setPost({
           ...post,

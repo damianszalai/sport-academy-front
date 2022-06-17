@@ -102,8 +102,8 @@ const FormJugadores = ({
         />
       </div>
       <h3>uploaded {progress} %</h3>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"
+<div className="progress">
+  <div className="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"
   style={{ width: `${progress}%` }}
   >{progress} %</div>
 </div>
