@@ -72,7 +72,7 @@ const Container = styled.nav`
     }
   }
   .navbar-brand img {
-    width: 180px;
+    width: 90px;
   }
   .navbar-collapse {
     flex-grow: initial !important;
