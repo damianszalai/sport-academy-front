@@ -6,6 +6,7 @@ import Header from "../../../components/molecules/header/Header";
 import StylePostGeneral from "./style";
 import BreadCrumb from "../../../components/atoms/breadCrumb/BreadCrumb";
 import NewsImg from "../../../components/organisms/newsImg/NewsImg";
+import Parser from 'html-react-parser';
 
 const PostGeneral = () => {
   const [datos, setDatos] = useState({
@@ -37,6 +38,7 @@ const PostGeneral = () => {
     {to:'/noticias', name:'Noticias'},
     {to:'/noticias', name:datos.categoria, active: true}
   ]
+  let thisIsMyCopy = datos.desc;
 
   return (
     <StylePostGeneral>
@@ -46,7 +48,7 @@ const PostGeneral = () => {
         <BreadCrumb secciones={secciones}/>
         <NewsImg urlImagen={datos.img} />
         <h2>{datos.titulo}</h2>
-        <p className="desc">{datos.desc}</p>
+        <p className="desc">{Parser(thisIsMyCopy)}</p>
         <p>Escrito por: {datos.autor}</p>
       </div>
     </StylePostGeneral>

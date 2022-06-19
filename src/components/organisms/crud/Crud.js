@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import JugadorCrud from "./JugadorCrud";
 import Container from "./style";
 import TitileCrud from "./TitileCrud";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
 import FormJugadores from "../formJugadores/FormJugadores";
 import Header from "../../molecules/header/Header";
@@ -29,10 +29,10 @@ const Crud = () => {
     obtenerDatos();
   }, []);
 
-  const editDoc = (usuario) => {
+/*   const editDoc = (usuario) => {
     setEditMode(true);
     setEditUser(usuario);
-  };
+  }; */
   const handlerVisible = () => {
     setFormVisible(false);
   };

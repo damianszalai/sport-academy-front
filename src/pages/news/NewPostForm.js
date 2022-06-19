@@ -5,6 +5,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../components/molecules/subheader/SubHeader";
 import toast, { Toaster } from "react-hot-toast";
+import TextArea from "./TextArea";
 
 const NewPostForm = ({ className }) => {
   const [progress, setProgress] = useState(0);
@@ -30,7 +31,15 @@ const NewPostForm = ({ className }) => {
     activa: true,
   });
 
+  const handleInputTextArea = (texto) => {
+    setPost({
+      ...post,
+      desc: texto,
+    });
+  }
+
   const handleInputChange = (event) => {
+    console.log(event.target);
     switch (event.target.name) {
       case "activa":
         setPost({
@@ -44,13 +53,13 @@ const NewPostForm = ({ className }) => {
           [event.target.name]: event.target.files[0].name,
         });
         break;
-        case "date":
-          setPost({
-            ...post,
-            [event.target.name]: event.target.value,
-          });
+      case "date":
+        setPost({
+          ...post,
+          [event.target.name]: event.target.value,
+        });
         console.log(event.target.value);
-          break;
+        break;
       default:
         setPost({
           ...post,
@@ -60,6 +69,8 @@ const NewPostForm = ({ className }) => {
     }
     console.log(post);
   };
+
+  
 
   const isFormValid = () => {
     if (post.titulo.trim().length === 0) {
@@ -102,23 +113,22 @@ const NewPostForm = ({ className }) => {
 
   const handlerSubmit = async (event) => {
     event.preventDefault();
-
     if (isFormValid()) {
-      const file = event.target[2].files[0];
+      const file = event.target[1].files[0];
       uploadFile(file);
 
       const docRef = await addDoc(collection(db, "noticias"), post);
       console.log("Document written with ID: ", docRef.id);
       toast.success("Se agrego correctamente", {
         style: {
-          padding: '16px',
-          background: 'green',
-          color: 'white',
-          borderRadius: '4px'
+          padding: "16px",
+          background: "green",
+          color: "white",
+          borderRadius: "4px",
         },
         iconTheme: {
-          primary: 'green',
-          secondary: 'white',
+          primary: "green",
+          secondary: "white",
         },
       });
       setPost({
@@ -129,13 +139,12 @@ const NewPostForm = ({ className }) => {
         img: "",
         autor: "",
         date: returnDate(),
-        activa: true
-      })
+        activa: true,
+      });
       setMsgError(false);
     }
   };
 
-  
   return (
     <Container className={className}>
       <Toaster position="bottom-left" />
@@ -156,15 +165,15 @@ const NewPostForm = ({ className }) => {
             name="titulo"
           ></input>
         </div>
-        <div className="form-group">
+        {/*     <div className="form-group">
           <label>Descripción</label>
           <textarea
             value={post.desc}
             onChange={handleInputChange}
             name="desc"
           />
-        </div>
-        <div className="form-group">
+        </div> */}
+                <div className="form-group">
           <label>Imagen</label>
           <input
             /* value={post.img} */
@@ -174,6 +183,13 @@ const NewPostForm = ({ className }) => {
             name="img"
           ></input>
         </div>
+        <div className="form-group">
+          <label>Descripción</label>
+          <TextArea
+            handleInputTextArea={handleInputTextArea}
+          />
+        </div>
+
         <div className="progress">
           <div
             className="progress-bar"

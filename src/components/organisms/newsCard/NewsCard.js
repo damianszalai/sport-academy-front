@@ -16,7 +16,7 @@ const NewsCard = ({ titulo, categoria, date, desc, img, id, num }) => {
         <p className="category">{categoria}</p>
         <h2>{titulo}</h2>
         <p className="date">{date}</p>
-        <p className="desc">{desc}</p>
+        <p className="desc">{desc.replace(/<[^>]+>/g, '')}</p>
       </div>
       <div>
         <Link className="btn btn-primary" to={`/noticias/${id}`}>
