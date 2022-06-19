@@ -3,7 +3,7 @@ import Counter from "../../components/organisms/counter/Counter";
 import Gallery from "../../components/organisms/gallery/Gallery";
 import Slider from "../../components/organisms/slider/Slider";
 import Sponsors from "../../components/organisms/sponsors/Sponsors";
-import NewCategory from "../news/NewCategory";
+import NewCategory from "../../components/organisms/newsCategory/NewCategory";
 import Container from "./style";
 
 const Home = () => {

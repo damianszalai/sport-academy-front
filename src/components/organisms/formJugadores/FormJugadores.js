@@ -3,6 +3,7 @@ import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db, storage } from "./../../../firebase/firebaseConfig";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
+import toast, { Toaster } from "react-hot-toast";
 
 const FormJugadores = ({
   usuarios,
@@ -10,11 +11,12 @@ const FormJugadores = ({
   editMode,
   setEditMode,
   editUser,
+  handlerVisible,
 }) => {
   const [datos, setDatos] = useState({
     nombre: "",
     edad: 0,
-    deporte: "jugadoresTenis",
+    deporte: "tenis",
     description: "",
     id: "",
     img: "",
@@ -33,6 +35,21 @@ const FormJugadores = ({
       ...datos,
       [event.target.name]: event.target.files[0].name,
     });
+  };
+
+  const handlerClear = (event) => {
+    event.preventDefault();
+    /* event.target[0].files[0]  = "" */
+    console.log(event.target);
+    setDatos({
+      nombre: "",
+      edad: 0,
+      deporte: "tenis",
+      description: "",
+      id: "",
+      img: "",
+    });
+    setProgress(0);
   };
 
   const uploadFile = (file) => {
@@ -59,20 +76,42 @@ const FormJugadores = ({
 
   const enviarDatos = async (event) => {
     event.preventDefault();
-
     const file = event.target[0].files[0];
     uploadFile(file);
-
-    const docRef = await addDoc(collection(db, datos.deporte), datos);
+    const docRef = await addDoc(collection(db, "jugadores"), datos);
     console.log("Document written with ID: ", docRef.id);
     setUsuarios([datos, ...usuarios]);
+    toast.success("Jugador Agregado", {
+      style: {
+        padding: '4px 16px',
+        background: '#28a745',
+        color: 'white',
+        borderRadius: '4px'
+      },
+      iconTheme: {
+        primary: '#28a745',
+        secondary: 'white',
+      },
+    });
   };
 
   const editarDatos = async (event) => {
     event.preventDefault();
-    const washingtonRef = doc(db, datos.deporte, datos.id);
+    const washingtonRef = doc(db, "jugadores", datos.id);
     console.log(datos.id);
     await updateDoc(washingtonRef, datos);
+    toast.success("Jugador Actualizado", {
+      style: {
+        padding: '4px 16px',
+        background: '#28a745',
+        color: 'white',
+        borderRadius: '4px'
+      },
+      iconTheme: {
+        primary: '#28a745',
+        secondary: 'white',
+      },
+    });
   };
 
   useEffect(() => {
@@ -82,76 +121,104 @@ const FormJugadores = ({
       : setDatos({
           nombre: "",
           edad: 0,
-          deporte: "jugadoresTenis",
+          deporte: "tenis",
           description: "",
           id: "",
           img: "",
         });
   }, [editMode, editUser]);
+
   /*   db.collection("users").doc(doc.id).update({foo: "bar"}); */
 
   return (
-    <Container onSubmit={editMode ? editarDatos : enviarDatos}>
-      <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
-      <div>
-        <input
-          className="form-control"
-          type="file"
-          onChange={handleInputChangeFile}
-          name="img"
-        />
-      </div>
-      <h3>uploaded {progress} %</h3>
-<div className="progress">
-  <div className="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"
-  style={{ width: `${progress}%` }}
-  >{progress} %</div>
-</div>
+    <Container
+      onSubmit={editMode ? editarDatos : enviarDatos}
+      onClick={(e) => {
+      console.log(e.target.className === "bi bi-x");
+      console.log(e.target.className);
+        (e.target.nodeName === "FORM" || e.target.className === "bi bi-x") &&
+          handlerVisible();
+      }}
+    >
+      <div className="form-container">
+        <span className="close">
+          <i className="bi bi-x"></i>
+        </span>
+        <h2> {editMode ? "Editar Jugador" : "Agregar Jugador"}</h2>
+        <div>
+          <input
+            className="form-control"
+            type="file"
+            onChange={handleInputChangeFile}
+            name="img"
+          />
+        </div>
+        <h3>uploaded {progress} %</h3>
+        <div className="progress">
+          <div
+            className="progress-bar"
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style={{ width: `${progress}%` }}
+          >
+            {progress} %
+          </div>
+        </div>
 
-      <div>
-        <label>Nombre</label>
-        <input
-          type="text"
-          value={datos.nombre}
-          onChange={handleInputChange}
-          name="nombre"
-        ></input>
-      </div>
-      <div>
-        <label>Deporte</label>
+        <div>
+          <label>Nombre</label>
+          <input
+            type="text"
+            value={datos.nombre}
+            onChange={handleInputChange}
+            name="nombre"
+          ></input>
+        </div>
+        <div>
+          <label>Deporte</label>
 
-        <select
-          value={datos.deporte}
-          onChange={handleInputChange}
-          name="deporte"
-        >
-          <option value="jugadoresTenis">Tenis</option>
-          <option value="jugadoresFutbol">Fútbol</option>
-        </select>
-      </div>
-      <div>
-        <label>Edad</label>
-        <input
-          type="number"
-          name="edad"
-          value={datos.edad}
-          onChange={handleInputChange}
-        ></input>
-      </div>
-      <div>
-        <label>Comentarios</label>
-        <textarea
-          value={datos.description}
-          onChange={handleInputChange}
-          name="description"
-        ></textarea>
-      </div>
-      <button className="btn">{editMode ? "Editar" : "Cargar"}</button>
-      {editMode && (
-        <button onClick={() => setEditMode(false)} className="btn  btn-danger">
-          Cancelar
+          <select
+            value={datos.deporte}
+            onChange={handleInputChange}
+            name="deporte"
+          >
+            <option value="tenis">Tenis</option>
+            <option value="futbol">Fútbol</option>
+          </select>
+        </div>
+        <div>
+          <label>Edad</label>
+          <input
+            type="number"
+            name="edad"
+            value={datos.edad}
+            onChange={handleInputChange}
+          ></input>
+        </div>
+        <div>
+          <label>Comentarios</label>
+          <textarea
+            value={datos.description}
+            onChange={handleInputChange}
+            name="description"
+          ></textarea>
+        </div>
+        <button className="btn">{editMode ? "Editar" : "Cargar"}</button>
+        <button className="btn btn-secondary" onClick={(e) => handlerClear(e)}>
+          Reset
         </button>
-      )}
+        {editMode && (
+          <button
+            onClick={() => setEditMode(false)}
+            className="btn  btn-danger"
+          >
+            Cancelar
+          </button>
+        )}
+      </div>
+      <Toaster position="bottom-left" />
     </Container>
   );
 };

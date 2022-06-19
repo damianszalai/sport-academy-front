@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/molecules/header/Header";
 import NewPostForm from "./NewPostForm";
 import StylePost from "./stylePost";
-import NewCategory from "../../components/organisms/newsCategory/NewCategory";
+import NewCategory from "./../../components/organisms/NewsCategoria/NewCategory";
 
 const News = () => {
   const [form, setForm] = useState(false);

@@ -2,7 +2,6 @@ import React, { /* useContext, */ useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "./../../../firebase/firebaseConfig";
 import Container from "./style";
-import FormJugadores from "../formJugadores/FormJugadores";
 import { motion } from "framer-motion";
 import ImageUser from "./ImageUser";
 /* import { AuthContext } from "../../../../auth/authContext"; */
@@ -43,13 +42,6 @@ const Usuarios = ({ deportes }) => {
   return (
     <Container className="container">
       <h1>Usuarios</h1>
-      <FormJugadores
-        editMode={editMode}
-        usuarios={usuarios}
-        setUsuarios={setUsuarios}
-        editUser={editUser}
-        setEditMode={setEditMode}
-      />
       <ul>
         {usuarios.map((usuario) => (
           <motion.li

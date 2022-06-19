@@ -1,6 +1,6 @@
 import styled, {keyframes} from "styled-components";
-import { Colors } from "../../styles/colors";
-import { devices } from "../../styles/devices";
+import { Colors } from "../../../styles/colors";
+import { devices } from "../../../styles/devices";
 
 
 
@@ -148,12 +148,7 @@ const StylePost = styled.section`
           margin-top: auto;
 
           &:first-child {
-            height: 150px;
-            width: 100%;
             margin-top: 0;
-            background-size:cover;
-            background-repeat: no-repeat;
-            background-position: center center;
           }
           a {
             background: ${Colors.yellow};

@@ -9,7 +9,7 @@ const JugadoresTenis = () => {
   return (
       <Container>
         <Header title="Jugadores Tenis" />
-       <Usuarios deportes="jugadoresTenis"/>
+       <Usuarios deportes="jugadores"/>
       </Container>
   );
 };

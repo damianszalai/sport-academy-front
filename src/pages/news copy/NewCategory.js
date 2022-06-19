@@ -41,7 +41,6 @@ const NewCategory = ({ title, categoria, subCategoria = false }) => {
   }, []);
   return (
     <StylePost className="container-fluid">
-      {console.log(subCategoria)}
       <div className="container">
         <h2>{title}</h2>
         <div>

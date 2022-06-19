@@ -13,8 +13,9 @@ import JugadoresTenis from "../pages/jugadoresTenis/JugadoresTenis";
 import LoginScreen from "../pages/loginScreen/LoginScreen";
 import RegisterScreen from "../pages/loginScreen/RegisterScreen";
 import NewPostForm from "../pages/news/NewPostForm";
-import PostGeneral from "../pages/news/PostGeneral";
+import PostGeneral from "../pages/news/new/Post";
 import News from "../pages/news/News";
+import Crud from "../components/organisms/crud/Crud";
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const AnimatedRoute = () => {
         <Route path="/newpost" element={<NewPostForm/>} />
         <Route path="/noticias" element={<News/>} />
         <Route path="/noticias/:id" element={<PostGeneral/>} />
+        <Route path="/crud" element={<Crud deportes="jugadoresFutbol"/>} />
 
         <Route
           path="/academia-tennis/grupo-proyeccion"
