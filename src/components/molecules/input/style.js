@@ -14,8 +14,8 @@ const Container = styled.div`
     height: 40px;
     border: solid 1px ${Colors.black};
     padding: 6px;
-    background: white;
-    color: white;
+    background: ${Colors.white};
+    color: ${Colors.white};
     color: ${Colors.black};
 
     &:focus {

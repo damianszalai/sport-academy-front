@@ -1,5 +1,7 @@
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import React, { useState } from "react";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import {ImgStyle} from './style'
+
 
 const ImageUser = ({ urlImagen }) => {
   const [imagen, setimagen] = useState("");
@@ -13,9 +15,7 @@ const ImageUser = ({ urlImagen }) => {
       console.error(error);
     });
   return (
-    <div>
-      <img src={imagen} alt="Imagen usuario"></img>
-    </div>
+     <ImgStyle bg={imagen}></ImgStyle>
   );
 };
 

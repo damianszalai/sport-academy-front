@@ -2,6 +2,13 @@ import styled from "styled-components";
 import { Colors } from "../../../styles/colors";
 import { devices } from "../../../styles/devices";
 
+const ImgStyle = styled.div`
+  background: url(${(props) => props.bg}) center center no-repeat fixed;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+`;
+
 const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -12,16 +19,15 @@ const Container = styled.section`
     padding: 24px;
   }
   ul {
-    margin: 12px 0;
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin: 12px 0;
     list-style: none;
     padding: 0;
-    width: 90%;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 12px;
 
     @media ${devices.laptop} {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       width: 100%;
       max-width: 1080px;
     }
@@ -31,24 +37,50 @@ const Container = styled.section`
       background: ${Colors.white};
       position: relative;
       text-align: center;
+      overflow: hidden;
 
-      img {
-        position: relative;
-        top: 50px;
-        max-width: 100%;
+      &:hover {
+        > div {
+          &:last-child {
+            min-height: 100%;
+            background: linear-gradient(
+            0deg,
+            ${Colors.white} 10%,
+            rgba(255, 255, 51, 0) 100%
+          );
+          }
+        }
       }
-
       > div {
-        background: ${Colors.yellow};
+ 
         width: 100%;
         text-align: center;
         padding: 24px;
-
-        img {
-          border-radius: 50%;
-          position: relative;
-          top: 50px;
-          max-width: 100px;
+        transition: all 0.25s ease-out;
+        &:last-child {
+          background: linear-gradient(
+            0deg,
+            ${Colors.white} 10%,
+            rgba(255, 255, 51, 0) 100%
+          );
+          padding: 3rem 1rem 1rem;
+          position: absolute;
+          bottom: 0;
+          text-align: left;
+          min-height: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          h2,
+          p {
+            line-height: 1;
+            padding: 0;
+            margin: 0;
+          }
+          * {
+            padding: 0;
+            margin: 0;
+          }
         }
       }
       h2 {
@@ -76,7 +108,7 @@ const Container = styled.section`
         button {
           margin-left: 12px;
           background: ${Colors.black};
-          color: white;
+          color: ${Colors.white};
           padding: 0;
           line-height: 1;
           height: 30px;
@@ -95,4 +127,4 @@ const Container = styled.section`
   }
 `;
 
-export default Container;
+export { Container, ImgStyle };

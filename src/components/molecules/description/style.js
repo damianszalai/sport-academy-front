@@ -39,7 +39,7 @@ const Container = styled.section`
         text-transform: uppercase;
       }
       p {
-        color: white;
+        color: ${Colors.white};
         text-align: justify;
       }
     }

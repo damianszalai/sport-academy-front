@@ -18,7 +18,7 @@ const Container = styled.section`
     > article {
       padding: 0 24px;
       background: ${Colors.black};
-      color: white;
+      color: ${Colors.white};
       width: 90%;
       margin-bottom:24px;
       

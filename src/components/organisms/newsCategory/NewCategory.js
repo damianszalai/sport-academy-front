@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { query, where, collection, getDocs, limit } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import NewsCard from "./../newsCard/NewsCard";
-import StylePost from "./style";
 import PlaceHolder from "../newsCardPlaceholder/PlaceHolder";
+import Column from "../../ui/Column";
+import Container from "./style";
+import SubHeader from "../../molecules/subheader/SubHeader";
 
 const NewCategory = ({ title, categoria, subCategoria = false }) => {
   const [noticias, setNoticias] = useState([]);
@@ -40,10 +42,10 @@ const NewCategory = ({ title, categoria, subCategoria = false }) => {
     obtenerDatos();
   }, []);
   return (
-    <StylePost className="container-fluid">
+    <Container className="container-fluid">
       <div className="container">
-        <h2>{title}</h2>
-        <div>
+        <SubHeader title={title}></SubHeader>
+        <Column columns="5">
           {noticias.length !== 0 ? (
             noticias.map((noticia, i) => (
               <NewsCard
@@ -60,14 +62,14 @@ const NewCategory = ({ title, categoria, subCategoria = false }) => {
           ) : (
             <PlaceHolder />
           )}
-          {noticias.length > 5 && <button>+</button>}
-        </div>
+{/*           {noticias.length > 5 && <button>+</button>} */}
+        </Column>
 
         {noticias.length > 5 && (
           <button className="btn btn-outline">Ver todas</button>
         )}
       </div>
-    </StylePost>
+    </Container>
   );
 };
 

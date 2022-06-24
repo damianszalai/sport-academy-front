@@ -15,7 +15,7 @@ const Container = styled.form`
     border-radius: 4px;
     padding: 24px;
     max-width: 600px;
-    background: white;
+    background: ${Colors.white};
     left: 50%;
     top: 50px;
     position: relative;

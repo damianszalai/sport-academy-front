@@ -54,7 +54,8 @@ const Container = styled.section`
         background-repeat: no-repeat;
 
         @media ${devices.mobileOnly} {
-          background-position: 108px center !important;
+          //background-position: 108px center !important;
+          background-position: center center !important;
         }
         @media ${devices.laptop} {
           background-size: 60%;
@@ -72,33 +73,38 @@ const Container = styled.section`
           animation: ${leftRight} 0.5s ease-out;
         }
         .left-desc {
-          width: 60%;
+          width: 100%;
           max-width: 950px;
-          background: rgba(33, 37, 41, 09);
-          clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+          background: rgba(33, 37, 41, .3);
           height: 101%;
           color: #fff;
           padding: 20px;
           box-sizing: border-box;
           position: relative;
           top: -1px;
-
+          
           @media ${devices.laptop} {
+            background: rgba(33, 37, 41, 1);
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
             width: 70%;
           }
 
           figure {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% - 40px);
+            left: 10%;
+            max-width:200px;
             background: 0 0;
             padding: 15px 0 37px;
             text-align: center;
-
+            transform: translate(0, -50%);
+            
             @media ${devices.laptop} {
+              transform: translate(-50%, -50%);
+              left: 50%;
+              width: calc(100% - 40px);
               padding: 15px 48px 37px;
+              max-width: initial;
           }
 
             h3 {
@@ -106,7 +112,7 @@ const Container = styled.section`
               font-weight: 700;
               line-height: 32px;
               margin-bottom: 20px;
-              color: white;
+              color: ${Colors.white};
             }
             p {
               margin-bottom: 20px;

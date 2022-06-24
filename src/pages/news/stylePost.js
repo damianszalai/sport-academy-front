@@ -100,6 +100,7 @@ const StylePost = styled.section`
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        border:solid 1px red;
         @media ${devices.laptop} {
           width: 30%;
           min-width: auto;

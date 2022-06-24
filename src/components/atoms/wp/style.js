@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../../styles/colors";
 
 const Container = styled.div`
   position: fixed;
@@ -9,7 +10,7 @@ const Container = styled.div`
     align-items: center;
     background: #25d366;
     border-radius: 50%;
-    color: white;
+    color: ${Colors.white};
     display: flex;
     font-size: 1.8em;
     height: 60px;

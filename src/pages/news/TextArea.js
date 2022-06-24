@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
+/* import { useLinkClickHandler } from "react-router-dom"; */
 import StylePost from "./styleTextArea";
 
-const TextArea = ({name,value, handleInputTextArea}) => {
+const TextArea = ({ name, value, handleInputTextArea }) => {
   const [fontColor, setFontColor] = useState("black");
-  const aa = useRef("")
+  const aa = useRef("");
 
-  const handler = ()=> {
+  const handler = () => {
     console.log(aa.current.innerHTML);
-    handleInputTextArea(aa.current.innerHTML)
-  }
+    handleInputTextArea(aa.current.innerHTML);
+  };
 
   const boldHandler = (formato, e) => {
     e.preventDefault();
@@ -26,31 +27,69 @@ const TextArea = ({name,value, handleInputTextArea}) => {
     setFontColor(e.target.value);
     document.execCommand("foreColor", false, fontColor);
   };
+  const addLink = () => {
+    var linkURL = prompt("Enter a URL:", "http://");
+    var sText = document.getSelection();
+
+    document.execCommand(
+      "insertHTML",
+      false,
+      '<a href="' + linkURL + '" target="_blank">' + sText + "</a>"
+    );
+  };
 
   return (
     <StylePost>
       <div className="toolbar">
-        <button type="button" onClick={(e) =>{ boldHandler("bold", e); handler()}}>
+        <button
+          type="button"
+          onClick={(e) => {
+            boldHandler("bold", e);
+            handler();
+          }}
+        >
           B
         </button>
-        <button type="button" onClick={(e) =>{ boldHandler("italic", e); handler()}}>
+        <button
+          type="button"
+          onClick={(e) => {
+            boldHandler("italic", e);
+            handler();
+          }}
+        >
           i
         </button>
-        <button
+        {/*         <button
           type="button"
           onClick={(e) =>{styleHandler("backColor", false, "red", e); handler()}}
         >
           red
-        </button>
+        </button> */}
         <button
           type="button"
-          onClick={(e) =>{ styleHandler("formatBlock", false, "<h2>", e); handler()}}
+          onClick={(e) => {
+            styleHandler("formatBlock", false, "<h2>", e);
+            handler();
+          }}
         >
           H2
         </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            addLink(e);
+          }}
+        >
+          Link
+        </button>
         <input onChange={(e) => colorHandler(e)} type="color" />
       </div>
-      <div ref={aa} contentEditable onKeyDown={handler} className="textarea"></div>
+      <div
+        ref={aa}
+        contentEditable
+        onKeyDown={handler}
+        className="textarea"
+      ></div>
     </StylePost>
   );
 };

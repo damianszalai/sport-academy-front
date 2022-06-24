@@ -6,6 +6,7 @@ import Container from "./style";
 import SubHeader from "../../components/molecules/subheader/SubHeader";
 import toast, { Toaster } from "react-hot-toast";
 import TextArea from "./TextArea";
+import { Colors } from "../../styles/colors";
 
 const NewPostForm = ({ className }) => {
   const [progress, setProgress] = useState(0);
@@ -123,12 +124,12 @@ const NewPostForm = ({ className }) => {
         style: {
           padding: "16px",
           background: "green",
-          color: "white",
+          color: Colors.white,
           borderRadius: "4px",
         },
         iconTheme: {
           primary: "green",
-          secondary: "white",
+          secondary: Colors.white,
         },
       });
       setPost({
@@ -183,13 +184,6 @@ const NewPostForm = ({ className }) => {
             name="img"
           ></input>
         </div>
-        <div className="form-group">
-          <label>Descripción</label>
-          <TextArea
-            handleInputTextArea={handleInputTextArea}
-          />
-        </div>
-
         <div className="progress">
           <div
             className="progress-bar"
@@ -202,6 +196,14 @@ const NewPostForm = ({ className }) => {
             {progress} %
           </div>
         </div>
+        <div className="form-group">
+          <label>Descripción</label>
+          <TextArea
+            handleInputTextArea={handleInputTextArea}
+          />
+        </div>
+
+  
         <div className="form-group">
           <label>Fecha</label>
           <input

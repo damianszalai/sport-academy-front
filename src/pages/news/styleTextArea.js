@@ -6,6 +6,9 @@ const StylePost = styled.section`
     max-width: 100%;
     min-height: 100px;
     border: solid 1px black;
+    h2 {
+      border: none;
+    }
   }
 `;
 

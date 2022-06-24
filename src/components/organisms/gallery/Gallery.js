@@ -14,9 +14,9 @@ const Gallery = () => {
     aaMin,
     bbMin,
     ccMin,
-    aaMin,
-    bbMin,
-    ccMin,
+/*    aaMin,
+     bbMin,
+    ccMin, */
   ];
 
   return (
@@ -24,20 +24,24 @@ const Gallery = () => {
       <figure className="container">
         {
           imageNes.map((item, i) => (
-          <motion.img
+          <motion.div
             initial={{ transform: "scale(0)", opacity: 0 }}
             animate={{ transform: "scale(1)", opacity: 1 }}
             transition={{
               duration: 0.45,
               ease: [0.96, -0.23, 0.03, 1.27]
             }}
+
+          
+            
             key={i}
             alt="i"
-            src={item}
+           /*  src={item} */
+           style={{background: `url(${item}) center center / cover no-repeat`}}
             onClick={() => setImage(item)}
           >
             
-          </motion.img>
+          </motion.div>
         ))
         }
       </figure>

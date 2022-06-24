@@ -5,6 +5,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import SubHeader from "../../components/molecules/subheader/SubHeader";
 import toast, { Toaster } from "react-hot-toast";
+import { Colors } from "../../styles/colors";
 
 const NewPostForm = ({ className }) => {
   const [progress, setProgress] = useState(0);
@@ -113,12 +114,12 @@ const NewPostForm = ({ className }) => {
         style: {
           padding: '16px',
           background: 'green',
-          color: 'white',
+          color: Colors.white,
           borderRadius: '4px'
         },
         iconTheme: {
           primary: 'green',
-          secondary: 'white',
+          secondary: Colors.white,
         },
       });
       setPost({

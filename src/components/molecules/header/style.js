@@ -10,10 +10,10 @@ const Container = styled.header`
   &:after {
     content: "";
     width: 30%;
-    height: 101%;
+    height: calc(100% + 2px);
     position: absolute;
     right: 0;
-    top: -1px;
+    bottom: -1px;
     background: ${Colors.black};
     display: block;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%);

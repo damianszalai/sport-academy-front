@@ -3,7 +3,7 @@ import { Colors } from "../../../styles/colors";
 
 const Container = styled.form`
   width: 100%;
-  background: white;
+  background: ${Colors.white};
   border-radius: 4px;
   margin: auto;
   margin-top: 24px;

@@ -24,7 +24,7 @@ const AnimatedRoute = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/academia-futbol" element={<AcademiaFutbol />} />
-        <Route path="/academia-tennis" element={<AcademiaTennis />} />
+        <Route path="/academia-tenis" element={<AcademiaTennis />} />
         <Route path="/becas-deportivas-usa" element={<BecasDeportivas />} />
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
         <Route path="/login" element={<LoginScreen/>} />
@@ -35,7 +35,7 @@ const AnimatedRoute = () => {
         <Route path="/crud" element={<Crud deportes="jugadoresFutbol"/>} />
 
         <Route
-          path="/academia-tennis/grupo-proyeccion"
+          path="/academia-tennis/grupo-proyeccgion"
           element={<GrupoProyeccion />}
         />
         <Route

@@ -94,7 +94,7 @@ const StylePost = styled.section`
       }
       article {
         object-fit: contain;
-        background: white;
+        background: ${Colors.white};
         border-radius: 4px;
         width: 80vw;
         overflow: hidden;

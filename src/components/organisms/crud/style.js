@@ -4,7 +4,7 @@ import { Colors } from "../../../styles/colors";
 const Container = styled.div`
   background: ${Colors.black};
   > div > div {
-    background: white;
+    background: ${Colors.white};
     border-radius: 4px;
     margin: 24px auto 0;
     padding: 24px 12px;

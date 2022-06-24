@@ -1,4 +1,4 @@
-import React, {/*  useContext, */ useState } from "react";
+import React, { /*  useContext, */ useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "../../../assets/index";
 /* import { AuthContext } from "../../../../auth/authContext";
@@ -8,7 +8,7 @@ import Container from "./style";
 
 export const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-/*   const { user, dispatch } = useContext(AuthContext);
+  /*   const { user, dispatch } = useContext(AuthContext);
 
   const handleLogout =()=> {
 
@@ -17,7 +17,6 @@ export const Navbar = () => {
     };
     dispatch(action)
   } */
-
 
   return (
     <Container className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -47,34 +46,18 @@ export const Navbar = () => {
                 exact="true"
                 to="/academia-futbol"
               >
-                Academia Fútbol
+                Sport Academy
               </NavLink>
             </li>
-
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  "nav-item nav-link " + (isActive && "active")
-                }
-                exact="true"
-                to="/academia-tennis"
-              >
-                Academia Tenis
-              </NavLink>
-            </li>
-            <NavBarDrop />
-
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  "nav-item nav-link " + (isActive && "active")
-                }
-                exact="true"
-                to="/becas-deportivas-usa"
-              >
-                Becas deportivas USA
-              </NavLink>
-            </li>
+            <NavBarDrop
+              titulo="Servicios"
+              secciones={[
+                { link: "/academia-futbol", title: "Fútbol" },
+                { link: "/academia-tenis", title: "Tenis" },
+                { link: "https://www.google.com.ar", title: "Gimnasio" },
+                { link: "https://www.google.com.ar", title: "Beca EEUU" },
+              ]}
+            />
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -87,7 +70,7 @@ export const Navbar = () => {
               </NavLink>
             </li>
             <li>
-            <NavLink
+              <NavLink
                 className={({ isActive }) =>
                   "nav-item nav-link " + (isActive && "active")
                 }
@@ -97,38 +80,63 @@ export const Navbar = () => {
                 Noticias
               </NavLink>
             </li>
-            ? <li>
-              
-              <NavLink
-                className={({ isActive }) =>
-                  "nav-item nav-link " + (isActive && "active")
-                }
-                exact="true"
-                to="/login"
-              >
-                <span>Login</span>
-              </NavLink>
-            </li>
-            {/* { !user.logged
-           ? <li>
-              
-              <NavLink
-                className={({ isActive }) =>
-                  "nav-item nav-link " + (isActive && "active")
-                }
-                exact="true"
-                to="/login"
-              >
-                <span>Login</span>
-              </NavLink>
-            </li>
-            :
-              
             <li>
-              <span>{user.name}</span>
-              <button onClick={handleLogout}>Logout</button>
+            <NavBarDrop
+              titulo="Nuestros Jugadores"
+              secciones={[
+                { link: "/jugadores/futbol", title: "Academia" },
+                { link: "https://www.google.com.ar", title: "EEUU" },
+                { link: "https://www.google.com.ar", title: "Testimonios" },
+               
+              ]}
+            />
             </li>
-        } */}
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/contacto"
+              >
+                Contacto
+              </NavLink>
+            </li>
+         {/*    <li>
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/academia-tennis"
+              >
+                Academia Tenis
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/becas-deportivas-usa"
+              >
+                Becas deportivas USA
+              </NavLink>
+            </li> */}
+   
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  "nav-item nav-link " + (isActive && "active")
+                }
+                exact="true"
+                to="/login"
+              >
+                <span>Login</span>
+              </NavLink>
+            </li>
+       
           </div>
         </div>
       </div>

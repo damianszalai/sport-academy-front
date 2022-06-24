@@ -5,6 +5,9 @@ import Slider from "../../components/organisms/slider/Slider";
 import Sponsors from "../../components/organisms/sponsors/Sponsors";
 import NewCategory from "../../components/organisms/newsCategory/NewCategory";
 import Container from "./style";
+import Servicios from "../../components/organisms/servicios/Servicios";
+import Column from "../../components/ui/Column";
+import Video from "../../components/molecules/video/Video";
 
 const Home = () => {
   return (
@@ -21,7 +24,32 @@ const Home = () => {
         </div>
       </div>
       <Counter />
-      <NewCategory categoria="noticias"title="Últimas Noticias" subCategoria={false}/>
+      <Column columns="2">
+        <Video>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V6iLWQB6hT8"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </Video>
+        <Video>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/V6iLWQB6hT8"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </Video>
+      </Column>
+      <Servicios/>
+      <NewCategory categoria="noticias" title="Últimas Noticias" subCategoria={false}/>
       <Gallery/>
       <Sponsors />
     </Container>

@@ -2,10 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import NewsImg from "./../newsImg/NewsImg";
+import Container from './style'
 
 const NewsCard = ({ titulo, categoria, date, desc, img, id, num }) => {
   return (
-    <motion.article
+    <Container>
+    <motion.div
       style={num === 5 && { display: "none" }}
       initial={{ transform: "scale(0)", opacity: 0 }}
       animate={{ transform: "scale(1)", opacity: 1 }}
@@ -14,16 +16,19 @@ const NewsCard = ({ titulo, categoria, date, desc, img, id, num }) => {
       <NewsImg urlImagen={img} />
       <div>
         <p className="category">{categoria}</p>
-        <h2>{titulo}</h2>
+        <h2><Link className="btn btn-primary" to={`/noticias/${id}`}>
+          {titulo}
+        </Link></h2>
         <p className="date">{date}</p>
-        <p className="desc">{desc.replace(/<[^>]+>/g, '')}</p>
-      </div>
+{/*         <p className="desc">{desc.replace(/<[^>]+>/g, '')}</p>
+ */}      </div>
       <div>
         <Link className="btn btn-primary" to={`/noticias/${id}`}>
           Ver Más
         </Link>
       </div>
-    </motion.article>
+    </motion.div>
+    </Container>
   );
 };
 

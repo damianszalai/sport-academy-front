@@ -4,6 +4,7 @@ import { db, storage } from "./../../../firebase/firebaseConfig";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Container from "./style";
 import toast, { Toaster } from "react-hot-toast";
+import { Colors } from "../../../styles/colors";
 
 const FormJugadores = ({
   usuarios,
@@ -85,12 +86,12 @@ const FormJugadores = ({
       style: {
         padding: '4px 16px',
         background: '#28a745',
-        color: 'white',
+        color: Colors.white,
         borderRadius: '4px'
       },
       iconTheme: {
         primary: '#28a745',
-        secondary: 'white',
+        secondary: Colors.white,
       },
     });
   };
@@ -104,12 +105,12 @@ const FormJugadores = ({
       style: {
         padding: '4px 16px',
         background: '#28a745',
-        color: 'white',
+        color: Colors.white,
         borderRadius: '4px'
       },
       iconTheme: {
         primary: '#28a745',
-        secondary: 'white',
+        secondary: Colors.white,
       },
     });
   };

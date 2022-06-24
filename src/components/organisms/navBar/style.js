@@ -1,17 +1,36 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { Colors } from "../../../styles/colors";
 import { devices } from "../../../styles/devices";
+
+const slide = keyframes`
+  from {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity:1 ;
+  }
+`;
+
 
 const Container = styled.nav`
   /* The dropdown container */
   .dropdown {
-   
     z-index: 11;
+
     &:hover .dropdown-content {
       display: block;
+     animation: ${slide} .25s ease-in-out;
+    
       z-index: 111;
+      opacity: 1;
     }
 
+    .dropdown-content {
+ overflow: hidden;
+    }
     .dropbtn {
       font-size: 16px;
       border: none;
@@ -29,7 +48,6 @@ const Container = styled.nav`
       position: relative;
       @media ${devices.laptop} {
         position: absolute;
-        
       }
       background-color: #f9f9f9;
       min-width: 160px;
@@ -57,7 +75,7 @@ const Container = styled.nav`
     & + ul {
       li {
         a {
-          background: white;
+          background: ${Colors.white};
           color: ${Colors.black};
           &:hover {
             background: grey;
@@ -83,9 +101,11 @@ const Container = styled.nav`
       color: ${Colors.yellow};
     }
 
-    .nav-item.dropdown:hover {
-      > div {
-        display: block;
+    .nav-item.dropdown {
+      &:hover {
+        > div {
+          display: block;
+        }
       }
     }
   }

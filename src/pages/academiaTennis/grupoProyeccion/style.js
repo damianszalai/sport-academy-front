@@ -31,7 +31,7 @@ const Container = styled.div`
           padding: 0 24px;
           width: 30%;
           background: ${Colors.black};
-          color: white;
+          color: ${Colors.white};
 
           h2 {
             background: ${Colors.yellow};
@@ -85,7 +85,7 @@ const Container = styled.div`
           }
 
           p {
-            color: white;
+            color: ${Colors.white};
             text-align: justify;
           }
         }
