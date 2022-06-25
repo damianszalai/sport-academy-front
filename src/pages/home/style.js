@@ -4,6 +4,7 @@ import { devices } from "../../styles/devices";
 
 const Container = styled.div`
   padding: 0;
+  overflow: hidden;
   background: ${Colors.black};
   .subHero {
     background: ${Colors.yellow};

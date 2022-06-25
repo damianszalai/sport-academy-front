@@ -20,11 +20,12 @@ const Container = styled.section`
   }
   ul {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     margin: 12px 0;
     list-style: none;
     padding: 0;
+    width: 90%;
 
     @media ${devices.laptop} {
       grid-template-columns: repeat(4, 1fr);
@@ -44,15 +45,14 @@ const Container = styled.section`
           &:last-child {
             min-height: 100%;
             background: linear-gradient(
-            0deg,
-            ${Colors.white} 10%,
-            rgba(255, 255, 51, 0) 100%
-          );
+              0deg,
+              ${Colors.white} 10%,
+              rgba(255, 255, 51, 0) 100%
+            );
           }
         }
       }
       > div {
- 
         width: 100%;
         text-align: center;
         padding: 24px;
@@ -69,13 +69,31 @@ const Container = styled.section`
           text-align: left;
           min-height: 100px;
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           justify-content: center;
+          justify-content: space-between;
+          align-items: center;
+
           h2,
           p {
             line-height: 1;
             padding: 0;
             margin: 0;
+            text-transform: capitalize;
+          }
+
+          > div {
+            h2 {
+              font-size: 1.3rem;
+            }
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          > p {
+            font-size: 2rem;
+            font-weight: bold;
           }
           * {
             padding: 0;

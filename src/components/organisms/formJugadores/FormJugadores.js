@@ -44,7 +44,7 @@ const FormJugadores = ({
     console.log(event.target);
     setDatos({
       nombre: "",
-      edad: 0,
+      edad: "",
       deporte: "tenis",
       description: "",
       id: "",
@@ -65,6 +65,18 @@ const FormJugadores = ({
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
         setProgress(prog);
+        { prog == 100 &&  toast.success("Jugador Agregado", {
+          style: {
+            padding: '4px 16px',
+            background: '#28a745',
+            color: Colors.white,
+            borderRadius: '4px'
+          },
+          iconTheme: {
+            primary: '#28a745',
+            secondary: Colors.white,
+          },
+        })}
       },
       (err) => console.log(err),
       () => {
@@ -82,18 +94,7 @@ const FormJugadores = ({
     const docRef = await addDoc(collection(db, "jugadores"), datos);
     console.log("Document written with ID: ", docRef.id);
     setUsuarios([datos, ...usuarios]);
-    toast.success("Jugador Agregado", {
-      style: {
-        padding: '4px 16px',
-        background: '#28a745',
-        color: Colors.white,
-        borderRadius: '4px'
-      },
-      iconTheme: {
-        primary: '#28a745',
-        secondary: Colors.white,
-      },
-    });
+ 
   };
 
   const editarDatos = async (event) => {
@@ -121,7 +122,7 @@ const FormJugadores = ({
       ? setDatos(editUser)
       : setDatos({
           nombre: "",
-          edad: 0,
+          edad: "",
           deporte: "tenis",
           description: "",
           id: "",
@@ -190,9 +191,9 @@ const FormJugadores = ({
           </select>
         </div>
         <div>
-          <label>Edad</label>
+          <label>Fecha de Nacimiento</label>
           <input
-            type="number"
+            type="date"
             name="edad"
             value={datos.edad}
             onChange={handleInputChange}

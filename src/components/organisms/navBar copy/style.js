@@ -17,12 +17,6 @@ const slide = keyframes`
 
 const Container = styled.nav`
   /* The dropdown container */
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background: transparent!important;
-
   .dropdown {
     z-index: 11;
 
@@ -96,10 +90,7 @@ const Container = styled.nav`
     }
   }
   .navbar-brand img {
-    width: 60px;
-    @media ${devices.laptop} {
-      width: 90px;
-      }
+    width: 90px;
   }
   .navbar-collapse {
     flex-grow: initial !important;

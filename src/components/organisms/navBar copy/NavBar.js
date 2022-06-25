@@ -19,7 +19,7 @@ export const Navbar = () => {
   } */
 
   return (
-    <Container className="navbar navbar-expand-sm navbar-dark">
+    <Container className="navbar navbar-expand-sm navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={Logo} alt="sport academy logo" />

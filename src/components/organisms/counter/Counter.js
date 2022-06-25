@@ -36,8 +36,7 @@ const Counter = () => {
         <div>
           <AnimatedNumber value={40} formatValue={formatValue} duration={300} />
           <span>
-            deportistas preparándose para obtener una beca deportiva en Estados
-            Unidos
+            deportistas preparándose para obtener una beca deportiva en USA
           </span>
         </div>
       </Column>

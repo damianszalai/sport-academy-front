@@ -8,11 +8,13 @@ import Container from "./style";
 import Servicios from "../../components/organisms/servicios/Servicios";
 import Column from "../../components/ui/Column";
 import Video from "../../components/molecules/video/Video";
+import Hero from "../../components/organisms/hero/Hero";
 
 const Home = () => {
   return (
     <Container className="container-fluid">
-      <Slider />
+      <Hero/>
+  {/*     <Slider /> */}
       <div className="subHero">
         <div className="container">
         <p>

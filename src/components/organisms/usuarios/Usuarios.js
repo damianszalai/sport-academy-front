@@ -16,7 +16,16 @@ const Usuarios = ({ deportes }) => {
   const [usuarios, setUsuarios] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [editUser, setEditUser] = useState();
-
+  const getAge = (dateString) => {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
@@ -61,20 +70,21 @@ const Usuarios = ({ deportes }) => {
             animate={{ transform: "scale(1)", opacity: 1 }}
             transition={{ duration: 0.45, ease: [0.96, -0.23, 0.03, 1.27] }}
           >
-            <div className="edit">
+       {/*      <div className="edit">
               <button onClick={() => removeDoc(deportes, usuario.id)}>
                 <i className="bi bi-trash"></i>
               </button>
               <button onClick={() => editDoc(usuario)}>
                 <i className="bi bi-pencil"></i>
               </button>
-            </div>
+            </div> */}
             <ImageUser urlImagen={usuario.img} />
             <div>
+              <div>
               <h2>{usuario.nombre}</h2>
-              {/*   <p>{usuario.edad}</p> */}
               <p>{usuario.deporte}</p>
-              {/*     <p>{usuario.description}</p> */}
+              </div>
+              <p>{getAge(`${usuario.edad}`)}</p>
             </div>
           </motion.li>
         ))}

@@ -28,7 +28,7 @@ const AppRouter = () => {
     store={store}>
       <BrowserRouter>
         <div>
-          <TopHeader />
+         {/*  <TopHeader /> */}
           <Navbar />
         </div>
         <AnimatedRoute />
