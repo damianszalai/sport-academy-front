@@ -15,6 +15,7 @@ import RegisterScreen from "../pages/loginScreen/RegisterScreen";
 import NewPostForm from "../pages/news/NewPostForm";
 import PostGeneral from "../pages/news/new/Post";
 import News from "../pages/news/News";
+import Contacto from "../pages/contacto/Contacto";
 import Crud from "../components/organisms/crud/Crud";
 
 const AnimatedRoute = () => {
@@ -27,6 +28,7 @@ const AnimatedRoute = () => {
         <Route path="/academia-tenis" element={<AcademiaTennis />} />
         <Route path="/becas-deportivas-usa" element={<BecasDeportivas />} />
         <Route path="/colegio-olimpo" element={<ColegioOlimpo />} />
+        <Route path="/contacto" element={<Contacto/>} />
         <Route path="/login" element={<LoginScreen/>} />
         <Route path="/register" element={<RegisterScreen/>} />
         <Route path="/newpost" element={<NewPostForm/>} />
