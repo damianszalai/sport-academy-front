@@ -4,24 +4,19 @@ export default async function handler(req, res) {
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: req.body.email, // Change to your recipient
+    to: 'imitacionesdesonidos@gmail.com', // Change to your recipient
     from: 'imitacionesdesonidos@gmail.com', // Change to your verified sender
     subject: 'Formulario web',
     text: 'Consulta del formulario web',
-    html: '<strong>' + req.body.message + '</strong>',
+    // html: '<strong>' + req.body.message + '</strong>',
+    html: '<strong>Hola! Como estás? </strong> todo bien!',
   }
 
 
   console.log("entro");
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   console.log("req.body", req.body);
-  // const msg = {
-  //   to: req.body.email, // Change to your recipient
-  //   from: 'imitacionesdesonidos@gmail.com', // Change to your verified sender
-  //   subject: 'Formulario web',
-  //   text: 'Consulta del formulario web',
-  //   html: '<strong>' + req.body.message + '</strong>',
-  // }
+
 
   await sgMail
     .send(msg)
